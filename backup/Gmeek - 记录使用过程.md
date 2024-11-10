@@ -458,7 +458,7 @@ fork 之后, 转到博客的 github 源码, 找到 `config.json`
 
 `Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/Qmf5T5VSrj4KGvihocKTSqrHs4M1R9CkMWRDhrnD5uFeVC">`
 
-这里我直接写改成我存放的链接 https://raw.githubusercontent.com/GJKen/demo/refs/heads/main/static/primer.min.css
+这里我直接写改成我存放的链接 https://gjken.github.io/primer.min.css
 
 ## 修改 #header 样式
 
