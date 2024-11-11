@@ -2,8 +2,11 @@
 
 # 搭建博客
 
-**如何搭建博客我就不写了, 这里主要记录一些js和css的修改.**
+**如何搭建博客我就不写了, 强烈建议看完官方的文档**
+
 搭建详情请看官方文档: https://blog.meekdai.com/tag.html#gmeek
+
+**这里主要记录一些 js 和 CSS 的修改.**
 
 > [!WARNING]
 > 利用 Github Page 搭建的网站内容是完全公开的, 请注意不要上传自己的隐私!!!
@@ -22,7 +25,7 @@
 
 `Gmeek-html<img src="https://i0.img2ipfs.com/ipfs/QmPJLQrhBg9opKvbgNGqQaEopEKJnsH3thbH7wNbocp6VF">`
 
-从图中可以看到, 可用js插入html实现修改文字.
+从图中可以看到, 可用 js 插入 html 实现修改文字.
 
 ## subTitle - 隐藏
 
@@ -32,7 +35,7 @@
 
 `Gmeek-html<img src="https://i0.img2ipfs.com/ipfs/Qmei764zAMx9fXgotWbrrwizXRsrk42GGiKor2Zqo8hFgy">`
 
-可以用空白字符的方式, 隐藏subTitle必须字段, 无需使用js隐藏.
+可以用空白字符的方式, 隐藏 subTitle 必须字段, 无需使用 js 隐藏.
 
 # 记录功能块代码
 
@@ -52,7 +55,7 @@
 
 > 来源: [Github](https://github.com/tiengming/tiengming.github.io)
 > 修改-增加图片拖动, 增加点击图片外部退出灯箱.
-> 已知bug: 当图片缩放过后,再对图片拖动会有微小偏差,~~我代码能力实在是太菜了😭~~.
+> 已知 bug: 当图片缩放过后,再对图片拖动会有微小偏差,~~我代码能力实在是太菜了😭~~.
 
 通过点击可大图浏览文章中的图片, 适合一些图片较多的文章.
 
@@ -63,9 +66,9 @@ Android 端可通过滑动屏幕左右切换图片.
 ## [GmeekVercount_uv.js](https://github.com/GJKen/gjken.github.io/blob/main/static/GmeekVercount_uv.min.js) - 网站增加访客计数器
 
 > Vercount [Github](https://github.com/EvanNotFound/vercount)
-> pv修改成uv计数
+> pv 修改成 uv 计数
 
-建议放入 `allHead` 里全站添加js.
+建议放入`allHead`里全站添加 js.
 
 ```json
 "allHead":"<script src='https://cdn.jsdelivr.net/gh/gjken/gjkdemo.github.io@main/static/GmeekVercount_uv.min.js'></script>"
@@ -85,8 +88,45 @@ Android 端可通过滑动屏幕左右切换图片.
 
 # 修改网站样式
 
-[primer.css](https://github.com/GJKen/gjken.github.io/blob/main/static/primer.css), 这个文件用来控制网站的整体样式, 存放在我的git仓库, 使用 jsdelivr CDN 加速.
+[primer.css](https://github.com/GJKen/gjken.github.io/blob/main/static/primer.css), 这个文件用来控制网站的整体样式, 存放在我的 git 仓库, 使用 jsdelivr CDN 加速.
 对应的选择器只张贴出关键 CSS 部分的修改, ~~不然代码太多了.~~
+
+##  \<html> 样式
+
+`[data-color-mode]`
+
+> [!NOTE]
+> 优化 light & dark 主题下的背景色.
+
+<details><summary>修改前</summary>
+
+```css
+[data-color-mode] {
+    color: var(--fgColor-default, var(--color-fg-default));
+    background-color: var(--bgColor-default, var(--color-canvas-default))
+}
+```
+
+</details>
+
+<details><summary>修改后</summary>
+
+```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+    --html-bgColor: #151c2f;/* 增加 */
+}
+:root {
+    --html-bgColor: #fff;/* 增加 */
+}
+[data-color-mode] {
+    background-color: var(--html-bgColor)
+}
+```
+
+</details>
 
 ## 博客 滚动条 样式
 
@@ -114,7 +154,7 @@ html {
 
 </details>
 
-## #header 样式
+## \#header 样式
 
 `#header`
 
@@ -157,7 +197,7 @@ html {
 
 </details>
 
-## #header 图标样式
+## \#header 图标样式
 
 `.btn-invisible:hover, .btn-invisible.zeroclipboard-is-hover`
 
@@ -194,42 +234,12 @@ html {
 
 </details>
 
-## 文章 \<html> 标签样式
+## 主页文章列表样式
 
-`[data-color-mode]`
+`.SideNav-item:last-child`
 
 > [!NOTE]
-> 优化 light & dark 主题下的背景色.
-
-<details><summary>修改前</summary>
-
-```css
-[data-color-mode] {
-    color: var(--fgColor-default, var(--color-fg-default));
-    background-color: var(--bgColor-default, var(--color-canvas-default))
-}
-```
-
-</details>
-
-<details><summary>修改后</summary>
-
-```css
-[data-color-mode=light][data-light-theme=dark],
-[data-color-mode=light][data-light-theme=dark]::selection,
-[data-color-mode=dark][data-dark-theme=dark],
-[data-color-mode=dark][data-dark-theme=dark]::selection {
-    --html-bgColor: #151c2f;/* 增加 */
-}
-:root {
-    --html-bgColor: #fff;/* 增加 */
-}
-[data-color-mode] {
-    background-color: var(--html-bgColor)
-}
-```
-
-</details>
+> 直接移除这个选择器的所有样式
 
 ## 文章 \<code> 标签样式
 
@@ -300,9 +310,10 @@ html {
 }
 .markdown-body h1 {
     background: var(--markdown-h1-bgColor);
-    border-radius: 10px;
+    border-radius: 6px;
     font-size: 2em;
     border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
+	border-left: .25em solid #32c7dd;
 }
 ```
 
@@ -433,40 +444,63 @@ a:hover {
 
 </details>
 
-# # 直接修改Gmeek仓库源码
+# 通过 Gmeek 仓库, 修改 CSS
+
+为什么这样做? ~~自娱自乐.~~
 
 ## Fork Gmeek 仓库
 
+仓库地址👉 https://github.com/Meekdai/Gmeek
+
 `Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmaJMN2pqoQwtA3c8bPbajkwWYAwaAcwbzUqBiXya836PV">`
 
-fork 之后, 转到博客的 github 源码, 找到 `config.json`
+fork 之后, 转到搭建博客的 github 源码,
 
-修改 `"GMEEK_VERSION":"main"`
+打开`.github/workflows/Gmeek.yml`文件, 修改构建博客仓库的地址为你自己的仓库地址
 
-如果值是 `last` 的话, Action 会失败, 因为默认值 `last` 是靠源码仓库(Gmeek)的 tag 来构建的, 改成 main 就不会构建失败.
+`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmNa2H5MrVphqpUwAHWBv7iWw782HmDb7qjZb3JEzdjQav">`
 
-~~创建新的 tag 也可以, 但是挺麻烦~~
+打开`config.json`文件, 修改成`"GMEEK_VERSION":"main"`
+
+> [!NOTE]
+> 如果值是`last`的话, Action 会失败, 因为默认值`last`是靠源码仓库(Gmeek)的 tag 来构建的, 改成 main 就不会构建失败.
+> ~~创建新的 tag 也可以, 但是挺麻烦.~~
+
 ## Gmeek.py
 
-`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmRNgkHFA4W2t2R8jkyBRc9ShKWDJrbsFdt87PCJ534NXr">`
+打开`Gmeek.py`, 开始修改~
 
-上图对应网站下方文字所示
+### 网站下方的文字
 
-`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmRNgkHFA4W2t2R8jkyBRc9ShKWDJrbsFdt87PCJ534NXr">`
+`Gmeek-html<img src="https://ipfs.mbzj.org/ipfs/QmQBwVgptWtvi36WWnoRmriPPsvezJq7Ui8oL47BehWvTh">`
 
-## 修改默认 primer.css
+### 修改默认 primer.css 链接
 
-`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/Qmf5T5VSrj4KGvihocKTSqrHs4M1R9CkMWRDhrnD5uFeVC">`
+`Gmeek-html<img src="https://ipfs.mbzj.org/ipfs/QmWcdviYe3A5bmtjCjhFeFA8VaczcvTQ2HDMB5aUAnkg3v">`
 
-这里我直接写改成我存放的链接 https://gjken.github.io/primer.min.css
+这里我直接写改成我存放的链接 https://gjken.github.io/primer.css
 
-## 修改 #header 样式
+## 修改页面头部样式
 
-找到 `post.html` 和 `plist.html`这两个文件
+### 打开 post.html 文件
 
-修改`.title-right{display:flex;}`
+定位样式`.title-right`, 其内容全部修改为flex布局`.title-right{display:flex;}`
 
+增加样式`.title-left{display: flex;flex-direction: column;align-items: center;gap: 20px;}`
 
+定位样式`.title-left a`, 删除`margin-left:8px;`, 设置flex布局之后取消图标多余的间距, 样式则通过 <a href="## \#header 图标样式">primer.css</a> 来修改.
+
+定位样式`.title-right .circle`, 删除`margin-right:8px;`, 和上面一样, 删除多余间距.
+
+定位样式`.avatar:hover`,其内容全部修改`.avatar:hover {transform: scale(1.5) rotate(720deg);box-shadow: 0 0 10px rgb(45 250 255 / 74%);}`
+
+### 打开 plist.html 文件
+
+定位样式`.title-right .circle`, 删除`margin-right:8px;`, 和上面一样, 删除多余间距.
+
+到这里我的自定义 header 就修改完成了, 剩下的到 primer.css 改.
+
+## 修改 特殊警告格式 样式
 
 # 使用 Gmeek-html 自定义标签, 给博客插入图片, 防止链接自动转换
 
