@@ -2,9 +2,7 @@
 
 # 搭建博客
 
-**如何搭建博客我就不写了, 强烈建议看完官方的文档**
-
-搭建详情请看官方文档: https://blog.meekdai.com/tag.html#gmeek
+**如何搭建博客我就不写了, 强烈建议看完[官方文档](https://blog.meekdai.com/tag.html#gmeek)**
 
 **这里主要记录一些 js 和 CSS 的修改.**
 
@@ -86,12 +84,12 @@ Android 端可通过滑动屏幕左右切换图片.
 
 未实际测试过.
 
-# 修改网站样式
+# 通过 primer.css, 修改博客样式
 
 [primer.css](https://github.com/GJKen/gjken.github.io/blob/main/static/primer.css), 这个文件用来控制网站的整体样式, 存放在我的 git 仓库, 使用 jsdelivr CDN 加速.
 对应的选择器只张贴出关键 CSS 部分的修改, ~~不然代码太多了.~~
 
-##  \<html> 样式
+## \<html> 标签样式
 
 `[data-color-mode]`
 
@@ -128,9 +126,9 @@ Android 端可通过滑动屏幕左右切换图片.
 
 </details>
 
-## 博客 滚动条 样式
+## 博客滚动条样式
 
-因为默认的 primer.css 里没有写, 所以下面都是增加代码.
+直接增加下面代码.
 
 <details><summary>CSS Code</summary>
 
@@ -161,9 +159,8 @@ html {
 > [!NOTE]
 > 修改顶部为 flex 居中布局, 更加美观.
 > 修改头像 hover 样式.
-> 修改之后无论是博客首页还是文章页都能生效.
-
-因为默认的 primer.css 里没有写, 所以下面都是增加代码.
+> 无论是博客首页还是文章页都能生效.
+> 直接增加下面代码.
 
 <details><summary>CSS Code</summary>
 
@@ -203,9 +200,6 @@ html {
 
 > [!NOTE]
 > 修改图标 hover 样式.
-> 修改之后无论是博客首页还是文章页都能生效.
-
-因为默认的 primer.css 里没有写, 所以下面都是增加代码.
 
 <details><summary>修改前</summary>
 
@@ -223,12 +217,74 @@ html {
 <details><summary>修改后</summary>
 
 ```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+	/* 增加 */
+	--title-right-btnbg-color: #46ffff61;
+	--title-right-svg-color: #00f0ff;
+}
+:root {
+	/* 增加 */
+	--title-right-btnbg-color: #46ffff61;
+	--title-right-svg-color: #71baff;
+}
 .btn-invisible:hover,
 .btn-invisible.zeroclipboard-is-hover {
-    color: var(--fgColor-accent, var(--color-accent-fg));
-    background-color: var(--title-right-btnbg-color);
-    outline: none;
-    box-shadow: none
+	color: var(--fgColor-accent, var(--color-accent-fg));
+	background-color: var(--title-right-btnbg-color);
+	outline: none;
+	box-shadow: none
+}
+/* 增加 */
+.btn-invisible:hover svg,
+.btn-invisible.zeroclipboard-is-hover svg {
+    fill: var(--title-right-svg-color);
+}
+```
+
+</details>
+
+## 文章 \<blockquote> 标签样式
+
+`.markdown-body blockquote a`
+
+> [!NOTE]
+> 修改文字颜色, 适配 light & dark 主题.
+
+<details><summary>修改前</summary>
+
+```css
+.markdown-body blockquote{
+	padding: 0 1em;
+	color: var(--fgColor-muted, var(--color-fg-muted));
+	border-left: .25em solid var(--borderColor-default, var(--color-border-default))
+}
+```
+
+</details>
+
+<details><summary>修改后</summary>
+
+```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+	/* 增加 */
+	--markdown-blockquote-color: #ffffff8c;
+	--markdown-blockquote-borderLeft-color: #bbbbbb8c;
+}
+:root {
+	/* 增加 */
+	--markdown-blockquote-color: #656d76;
+	--markdown-blockquote-borderLeft-color: #d0d7de;
+}
+.markdown-body blockquote {
+	padding: 0 1em;
+	color: var(--markdown-blockquote-color);
+	border-left: .25em solid var(--markdown-blockquote-borderLeft-color)
 }
 ```
 
@@ -239,50 +295,14 @@ html {
 `.SideNav-item:last-child`
 
 > [!NOTE]
-> 直接移除这个选择器的所有样式
-
-## 文章 \<code> 标签样式
-
-`.markdown-body code, .markdown-body tt`
-
-> [!NOTE]
-> 优化 light & dark 主题下的背景色.
-
-<details><summary>修改前</summary>
-
-```css
-.markdown-body code,
-.markdown-body tt {
-    background-color: var(--bgColor-neutral-muted, var(--color-neutral-muted));
-}
-```
-
-</details>
-<details><summary>修改后</summary>
-
-```css
-[data-color-mode=light][data-light-theme=dark],
-[data-color-mode=light][data-light-theme=dark]::selection,
-[data-color-mode=dark][data-dark-theme=dark],
-[data-color-mode=dark][data-dark-theme=dark]::selection {
-    --markdown-code-color: #3bf6ff52;/* 增加 */
-}
-:root {
-    --markdown-code-color: #4d4d4d38;/* 增加 */
-}
-.markdown-body code,
-.markdown-body tt {
-    background-color: var(--markdown-code-color);
-}
-```
-
-</details>
+> 直接移除这个选择器的所有样式.
 
 ## 文章 \<h1> 标签的样式
 
 `.markdown-body h1`
 
 > [!NOTE]
+> 修改字体大小1.85em
 > 优化 light & dark 主题下的背景色.
 
 <details><summary>修改前</summary>
@@ -311,7 +331,7 @@ html {
 .markdown-body h1 {
     background: var(--markdown-h1-bgColor);
     border-radius: 6px;
-    font-size: 2em;
+    font-size: 1.85em;
     border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
 	border-left: .25em solid #32c7dd;
 }
@@ -381,13 +401,150 @@ html {
 [data-color-mode=light][data-light-theme=dark]::selection,
 [data-color-mode=dark][data-dark-theme=dark],
 [data-color-mode=dark][data-dark-theme=dark]::selection 
-    --markdown-imgShadow: #b8fffc29;/* 增加 */
+    --markdown-imgShadow: #88d9ff47;/* 增加 */
 }
 :root {
     --markdown-imgShadow: #0000000d;/* 增加 */
 }
+/* 增加 */
+.markdown-body p {
+	position: relative;
+	overflow: visible;
+	transition: box-shadow 0.3s ease;
+	-webkit-transition: box-shadow 0.3s ease;
+	clip-path: inset(0);
+	-webkit-clip-path: inset(0);
+}
 .markdown-body img {
-    box-shadow: 0 4px 8px 0 var(--markdown-imgShadow), 0 -4px 8px 0 var(--markdown-imgShadow);
+	max-width: 100%;
+	box-sizing: content-box;
+	transition: transform 0.3s ease, clip-path 0.3s ease;
+	-webkit-transition: -webkit-transform 0.3s ease, -webkit-clip-path 0.3s ease, box-shadow 0.2s ease;
+}
+/* 增加 */
+.markdown-body img:hover {
+	transform: scale(1.01);
+	-webkit-transform: scale(1.01);
+	clip-path: inset(-4%);
+	-webkit-clip-path: inset(-4%);
+	box-shadow: 0 4px 8px 0 var(--markdown-imgShadow), 0 -4px 8px 0 var(--markdown-imgShadow);
+}
+```
+
+</details>
+
+## 文章 \<code> 标签样式
+
+`.markdown-body code, .markdown-body tt`
+
+> [!NOTE]
+> 优化 light & dark 主题下的背景色.
+
+<details><summary>修改前</summary>
+
+```css
+.markdown-body code,
+.markdown-body tt {
+	background-color: var(--bgColor-neutral-muted, var(--color-neutral-muted));
+}
+```
+
+</details>
+
+<details><summary>修改后</summary>
+
+```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+	--markdown-code-bgColor: #3bf6ff52;/* 增加 */
+}
+:root {
+	--markdown-code-bgColor: #4d4d4d38;/* 增加 */
+}
+.markdown-body code,
+.markdown-body tt {
+	background-color: var(--markdown-code-bgColor);
+}
+```
+
+</details>
+
+## 文章代码块样式
+
+`.markdown-body .highlight pre, .markdown-body pre {`
+
+> [!NOTE]
+> 优化 light & dark 主题下的背景色.
+
+<details><summary>修改前</summary>
+
+```css
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	color: var(--fgColor-default, var(--color-fg-default));
+	background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+	border-radius: 6px
+}
+```
+
+</details>
+
+<details><summary>修改后</summary>
+
+```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+	--markdown-pre-bgColor: #27282d;/* 增加 */
+}
+:root {
+	--markdown-pre-bgColor: #f6f8fa;/* 增加 */
+}
+.markdown-body .highlight pre,
+.markdown-body pre {
+	padding: 16px;
+	overflow: auto;
+	font-size: 85%;
+	line-height: 1.45;
+	color: var(--fgColor-default, var(--color-fg-default));
+	background-color: var(--markdown-pre-bgColor);
+	border-radius: 6px
+}
+```
+
+</details>
+
+## 文章一键复制代码按钮样式
+
+> [!NOTE]
+> 给按钮增加 hover 动画, 使其显示&隐藏一键复制按钮.
+> 直接增加下面代码.
+
+<details><summary>CSS Code</summary>
+
+```css
+/* 一键复制hover出入动画 */
+.clipboard-container {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+	-webkit-transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+.highlight:hover .clipboard-container {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity 0.3s ease, visibility 0s 0s;
+	-webkit-transition: opacity 0.3s ease, visibility 0s 0s;
 }
 ```
 
@@ -444,7 +601,7 @@ a:hover {
 
 </details>
 
-# 通过 Gmeek 仓库, 修改 CSS
+# 通过 Gmeek 仓库, 修改博客样式
 
 为什么这样做? ~~自娱自乐.~~
 
@@ -460,7 +617,7 @@ fork 之后, 转到搭建博客的 github 源码,
 
 `Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmNa2H5MrVphqpUwAHWBv7iWw782HmDb7qjZb3JEzdjQav">`
 
-打开`config.json`文件, 修改成`"GMEEK_VERSION":"main"`
+打开`config.json`文件, 修改右边字段值为main`"GMEEK_VERSION":"main"`
 
 > [!NOTE]
 > 如果值是`last`的话, Action 会失败, 因为默认值`last`是靠源码仓库(Gmeek)的 tag 来构建的, 改成 main 就不会构建失败.
@@ -498,23 +655,33 @@ fork 之后, 转到搭建博客的 github 源码,
 
 定位样式`.title-right .circle`, 删除`margin-right:8px;`, 和上面一样, 删除多余间距.
 
-到这里我的自定义 header 就修改完成了, 剩下的到 primer.css 改.
+到这里我的自定义 header 就修改完成了, 其它的样式可到 primer.css 里修改.
 
 ## 修改[警报强调信息]样式
+
+定位代码`markdown-alert-{alert}`
+
+> 增加圆角6px
+
+`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/Qmen4szA7gJFZYiiXU7xcU2dqTfWyyCdEu619PCJCHtMQS">`
+
+效果图:
+
+`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/QmZpTsgv2gCosiy6VRuckx59U1yiLfyTMqxkbXHivWmusW">`
 
 # 使用 Gmeek-html 自定义标签, 给博客插入图片, 防止链接自动转换
 
 Github 在 issues 插入的图片也会自动转换为 Github 的地址.
-为了文章的多样性, 在 Gmeek 的 `v2.19` 版本中添加了支持 html 标签的功能.
+为了文章的多样性, 在 Gmeek 的`v2.19`版本中添加了支持 html 标签的功能.
 示例代码:
 
 ```html
-`Gmeek-html<img src="https://img.jpg" style="text-align: center;">`
+`Gmeek-html<img src="https://img.jpg">`
 ```
 
 实际展示:
 
-`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/Qme1BvwvqLcS86jQqwfxVEFrdNPusCqRn3APhdHGEKLtDb" style="text-align: center;">`
+`Gmeek-html<img src="https://cdn.img2ipfs.com/ipfs/Qme1BvwvqLcS86jQqwfxVEFrdNPusCqRn3APhdHGEKLtDb">`
 
 # 添加自定义单篇文章代码
 
@@ -525,6 +692,17 @@ Github 在 issues 插入的图片也会自动转换为 Github 的地址.
 
 <!-- ##{"script":"<script>document.getElementById('user-content-busuanzi').id='busuanzi_container_site_uv';busuanzi=document.getElementById('busuanzi_container_site_uv');busuanzi.style.display='none';busuanzi.childNodes[1].id='busuanzi_value_site_uv';busuanzi.childNodes[3].id='busuanzi_value_site_pv';</script><script async src='//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js'></script>","style":"<style>#busuanzi_value_site_uv{color:red}#busuanzi_value_site_pv{color:red}</style>"}## -->
 ```
+
+# Issues Label 备份
+
+| Label Name | Color | 效果
+|-|-|-
+| 网站 | #218155 | ![Badge](https://img.shields.io/badge/%E7%BD%91%E7%AB%99-%237057FF-7057FF)
+| Win  | #5AB3F3 | ![Badge](https://img.shields.io/badge/Win-%235AB3F3-5AB3F3)
+| Github | #333333 | ![Static Badge](https://img.shields.io/badge/Github-%23333333-333333)
+| JS | #AD3152 | ![Static Badge](https://img.shields.io/badge/JS-%23AD3152-AD3152)
+| CSS | #AD3152 | ![Badge](https://img.shields.io/badge/CSS-%23218155-218155)
+| Bug | #D73A4A | ![Static Badge](https://img.shields.io/badge/Bug-%23D73A4A-D73A4A)
 
 # Readme.md
 
