@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>Blog Title</title><link>https://gjken.github.io</link><description>Blog description</description><copyright>Blog Title</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Tue, 12 Nov 2024 18:29:54 +0000</lastBuildDate><managingEditor>Blog Title</managingEditor><ttl>60</ttl><webMaster>Blog Title</webMaster><item><title>Gmeek - 记录使用过程</title><link>https://gjken.github.io/post/Gmeek%20-%20-ji-lu-shi-yong-guo-cheng.html</link><description>[Gmeek](https://github.com/Meekdai/Gmeek) 博客完全依托 Github, 提供域名, 无需服务器, 比起传统的服务器建站更方便快捷.&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://ipfs.mbzj.org/ipfs/QmWdwjYEWh1CfZe7NtbJcBp658tWbs7PqeaxgLh46NwxRZ</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Tue, 12 Nov 2024 18:38:14 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>Gmeek - 记录使用过程</title><link>https://gjken.github.io/post/1.html</link><description>[Gmeek](https://github.com/Meekdai/Gmeek) 博客完全依托 Github, 提供域名, 无需服务器, 比起传统的服务器建站更方便快捷.&#13;
 &#13;
 # 搭建博客&#13;
 &#13;
@@ -711,4 +711,4 @@ Github 在 issues 插入的图片也会自动转换为 Github 的地址.&#13;
 💬 &gt; 评论总数&#13;
 🌺 &gt; 是统计的所有文章的字符数&#13;
 ⏰ &gt; 最后一次 Actions 的时间&#13;
-。</description><guid isPermaLink="true">https://gjken.github.io/post/Gmeek%20-%20-ji-lu-shi-yong-guo-cheng.html</guid><pubDate>Sun, 10 Nov 2024 16:22:46 +0000</pubDate></item></channel></rss>
+。</description><guid isPermaLink="true">https://gjken.github.io/post/1.html</guid><pubDate>Sun, 10 Nov 2024 16:22:46 +0000</pubDate></item></channel></rss>
