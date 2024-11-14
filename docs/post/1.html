@@ -14,7 +14,7 @@
 
 # 搭建博客
 
-**如何搭建博客我就不写了, 强烈建议看完[官方文档](https://blog.meekdai.com/tag.html#gmeek)**
+**如何搭建博客我就不写了, 强烈建议看完[官方文档](https://blog.meekdai.com/tag.html#gmeek).**
 
 **这里主要记录一些 js 和 CSS 的修改.**
 
@@ -102,7 +102,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
             post_body = re.sub(r'<code class='notranslate'>Gmeek-imgbox&lt;img src='([^']+)'&gt;</code>', lambda match: f'<img data-fancybox='gallery' data-src='{match.group(1)}' src='{match.group(1)}'>', post_body, flags=re.DOTALL)
 ```
 
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmZEd3RecBMiM59khHbB2xYLnSdWXados3yDPhzhVrZDyX'>`
+`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbnqZ2K74iZPmHgzAJKwro2uoH3Q3U1hbQanfPJpXfv4b'>`
 
 ### 示例使用
 
@@ -112,7 +112,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
 `Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
 ```
 
-通过 Action 转义后实际效果如下, html 里面图片标签会增加`data-fancybox='gallery'` 和 `data-src`属性, 这些都是 fancybox 必要的属性.
+通过 Action 转换后实际效果如下, html 里面图片标签会增加 fancybox 所需的`data-fancybox='gallery'` 和 `data-src=''`属性.
 
 `Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmXtNapJz2XijpRa9AQtrQYNGBY91MmnWa7H1SUF5CiZzN'>`
 
@@ -153,6 +153,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
 
 > [!NOTE]
 > 优化 light & dark 主题下的背景色.
+> 增加兼容性动画过渡.
 
 <details><summary>修改前</summary>
 
@@ -178,7 +179,12 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
     --html-bgColor: #fff;/* 增加 */
 }
 [data-color-mode] {
-    background-color: var(--html-bgColor)
+	color: var(--fgColor-default, var(--color-fg-default));
+	background-color: var(--html-bgColor);
+	-webkit-transition: background-color 0.5s ease;/* 增加 */
+	-moz-transition: background-color 0.5s ease;/* 增加 */
+	-o-transition: background-color 0.5s ease;/* 增加 */
+	transition: background-color 0.5s ease;/* 增加 */
 }
 ```
 
@@ -784,12 +790,33 @@ Github 在 issues 插入的图片也会自动转换为 Github 的地址.
 示例代码:
 
 ```html
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+`Gmeek-html<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
 ```
 
 效果图:
 
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+`Gmeek-html<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+
+> [!Important]
+> 如果在文章中含有代码块标签并且内容为Gmeek-html, Action 那边会进行转换导致显示错误, 详情看[#201](https://github.com/Meekdai/Gmeek/issues/201)
+> `gmeek-html` 换成小写就没事了.
+
+# 优化 Gmeek-html, 标签转换匹配
+
+打开`Gmeek.py`
+
+定位字符串`gmeek-html`
+
+替换成下面的代码:
+
+```python
+if '<code class='notranslate'>Gmeek-html' in post_body:
+            post_body = re.sub(r'<code class='notranslate'>Gmeek-html(&lt;.*?&gt;)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
+```
+
+原先匹配的内容为:`<code class='notranslate'>Gmeek-html(.*?)</code>`, 这样会导致转换文章内容时出现显示错误.
+
+更改后缩小了匹配范围, 可以直接使用`Gmeek-html`让其在文章内正常显示.
 
 # 添加自定义单篇文章代码
 
@@ -823,7 +850,7 @@ Github 在 issues 插入的图片也会自动转换为 Github 的地址.
 
 # 搭建博客
 
-**如何搭建博客我就不写了, 强烈建议看完[官方文档](https://blog.meekdai.com/tag.html#gmeek)**
+**如何搭建博客我就不写了, 强烈建议看完[官方文档](https://blog.meekdai.com/tag.html#gmeek).**
 
 **这里主要记录一些 js 和 CSS 的修改.**
 
@@ -911,7 +938,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
             post_body = re.sub(r'<code class='notranslate'>Gmeek-imgbox&lt;img src='([^']+)'&gt;</code>', lambda match: f'<img data-fancybox='gallery' data-src='{match.group(1)}' src='{match.group(1)}'>', post_body, flags=re.DOTALL)
 ```
 
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmZEd3RecBMiM59khHbB2xYLnSdWXados3yDPhzhVrZDyX'>`
+`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbnqZ2K74iZPmHgzAJKwro2uoH3Q3U1hbQanfPJpXfv4b'>`
 
 ### 示例使用
 
@@ -921,7 +948,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
 `Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
 ```
 
-通过 Action 转义后实际效果如下, html 里面图片标签会增加`data-fancybox='gallery'` 和 `data-src`属性, 这些都是 fancybox 必要的属性.
+通过 Action 转换后实际效果如下, html 里面图片标签会增加 fancybox 所需的`data-fancybox='gallery'` 和 `data-src=''`属性.
 
 `Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmXtNapJz2XijpRa9AQtrQYNGBY91MmnWa7H1SUF5CiZzN'>`
 
@@ -962,6 +989,7 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
 
 > [!NOTE]
 > 优化 light & dark 主题下的背景色.
+> 增加兼容性动画过渡.
 
 <details><summary>修改前</summary>
 
@@ -987,7 +1015,12 @@ if '<code class='notranslate'>Gmeek-imgbox' in post_body:
     --html-bgColor: #fff;/* 增加 */
 }
 [data-color-mode] {
-    background-color: var(--html-bgColor)
+	color: var(--fgColor-default, var(--color-fg-default));
+	background-color: var(--html-bgColor);
+	-webkit-transition: background-color 0.5s ease;/* 增加 */
+	-moz-transition: background-color 0.5s ease;/* 增加 */
+	-o-transition: background-color 0.5s ease;/* 增加 */
+	transition: background-color 0.5s ease;/* 增加 */
 }
 ```
 
@@ -1593,12 +1626,33 @@ Github 在 issues 插入的图片也会自动转换为 Github 的地址.
 示例代码:
 
 ```html
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+`Gmeek-html<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
 ```
 
 效果图:
 
-`Gmeek-imgbox<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+`Gmeek-html<img src='https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq'>`
+
+> [!Important]
+> 如果在文章中含有代码块标签并且内容为Gmeek-html, Action 那边会进行转换导致显示错误, 详情看[#201](https://github.com/Meekdai/Gmeek/issues/201)
+> `gmeek-html` 换成小写就没事了.
+
+# 优化 Gmeek-html, 标签转换匹配
+
+打开`Gmeek.py`
+
+定位字符串`gmeek-html`
+
+替换成下面的代码:
+
+```python
+if '<code class='notranslate'>Gmeek-html' in post_body:
+            post_body = re.sub(r'<code class='notranslate'>Gmeek-html(&lt;.*?&gt;)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
+```
+
+原先匹配的内容为:`<code class='notranslate'>Gmeek-html(.*?)</code>`, 这样会导致转换文章内容时出现显示错误.
+
+更改后缩小了匹配范围, 可以直接使用`Gmeek-html`让其在文章内正常显示.
 
 # 添加自定义单篇文章代码
 
@@ -1668,7 +1722,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     font-size: 12px;
 }
 </style>
-<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));border-radius:6px;background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style><style>.markdown-alert.markdown-alert-warning {border-left-color:var(--borderColor-attention-emphasis, var(--color-attention-emphasis));border-radius:6px;background-color:var(--color-attention-subtle);}.markdown-alert.markdown-alert-warning .markdown-alert-title {color: var(--fgColor-attention,var(--color-attention-fg));}</style>
+<style>.markdown-alert{padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;line-height:1;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));border-radius:6px;background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style><style>.markdown-alert.markdown-alert-important {border-left-color:var(--borderColor-done-emphasis, var(--color-done-emphasis));border-radius:6px;background-color:var(--color-done-subtle);}.markdown-alert.markdown-alert-important .markdown-alert-title {color: var(--fgColor-done,var(--color-done-fg));}</style><style>.markdown-alert.markdown-alert-warning {border-left-color:var(--borderColor-attention-emphasis, var(--color-attention-emphasis));border-radius:6px;background-color:var(--color-attention-subtle);}.markdown-alert.markdown-alert-warning .markdown-alert-title {color: var(--fgColor-attention,var(--color-attention-fg));}</style>
 
 
 
@@ -1700,7 +1754,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <div id="content">
 <div class="markdown-body" id="postBody"><p><a href="https://github.com/Meekdai/Gmeek">Gmeek</a> 博客完全依托 Github, 提供域名, 无需服务器, 比起传统的服务器建站更方便快捷.</p>
 <h1>搭建博客</h1>
-<p><strong>如何搭建博客我就不写了, 强烈建议看完<a href="https://blog.meekdai.com/tag.html#gmeek" rel="nofollow">官方文档</a></strong></p>
+<p><strong>如何搭建博客我就不写了, 强烈建议看完<a href="https://blog.meekdai.com/tag.html#gmeek" rel="nofollow">官方文档</a>.</strong></p>
 <p><strong>这里主要记录一些 js 和 CSS 的修改.</strong></p>
 <div class="markdown-alert markdown-alert-warning"><p class="markdown-alert-title"><svg class="octicon octicon-alert mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</p><p>利用 Github Page 搭建的网站内容是完全公开的, 请注意不要上传自己的隐私!!!</p>
 </div>
@@ -1750,11 +1804,11 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <p>然后在下面增加代码:</p>
 <div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">if</span> <span class="pl-s">'&lt;code class="notranslate"&gt;Gmeek-imgbox'</span> <span class="pl-c1">in</span> <span class="pl-s1">post_body</span>: 
             <span class="pl-s1">post_body</span> <span class="pl-c1">=</span> <span class="pl-s1">re</span>.<span class="pl-en">sub</span>(<span class="pl-s">r'&lt;code class="notranslate"&gt;Gmeek-imgbox&amp;lt;img src="([^"]+)"&amp;gt;&lt;/code&gt;'</span>, <span class="pl-k">lambda</span> <span class="pl-s1">match</span>: <span class="pl-s">f'&lt;img data-fancybox="gallery" data-src="<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">match</span>.<span class="pl-en">group</span>(<span class="pl-c1">1</span>)<span class="pl-kos">}</span></span>" src="<span class="pl-s1"><span class="pl-kos">{</span><span class="pl-s1">match</span>.<span class="pl-en">group</span>(<span class="pl-c1">1</span>)<span class="pl-kos">}</span></span>"&gt;'</span>, <span class="pl-s1">post_body</span>, <span class="pl-s1">flags</span><span class="pl-c1">=</span><span class="pl-s1">re</span>.<span class="pl-v">DOTALL</span>)</pre></div>
-<p><img data-fancybox="gallery" data-src="https://i0.img2ipfs.com/ipfs/QmZEd3RecBMiM59khHbB2xYLnSdWXados3yDPhzhVrZDyX" src="https://i0.img2ipfs.com/ipfs/QmZEd3RecBMiM59khHbB2xYLnSdWXados3yDPhzhVrZDyX"></p>
+<p><img data-fancybox="gallery" data-src="https://i0.img2ipfs.com/ipfs/QmbnqZ2K74iZPmHgzAJKwro2uoH3Q3U1hbQanfPJpXfv4b" src="https://i0.img2ipfs.com/ipfs/QmbnqZ2K74iZPmHgzAJKwro2uoH3Q3U1hbQanfPJpXfv4b"></p>
 <h3>示例使用</h3>
 <p>在 markdown 插入图片:</p>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate">`Gmeek-imgbox<span class="pl-kos">&lt;</span><span class="pl-ent">img</span> <span class="pl-c1">src</span>="<span class="pl-s">https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq</span>"<span class="pl-kos">&gt;</span>`</pre></div>
-<p>通过 Action 转义后实际效果如下, html 里面图片标签会增加<code class="notranslate">data-fancybox="gallery"</code> 和 <code class="notranslate">data-src</code>属性, 这些都是 fancybox 必要的属性.</p>
+<p>通过 Action 转换后实际效果如下, html 里面图片标签会增加 fancybox 所需的<code class="notranslate">data-fancybox="gallery"</code> 和 <code class="notranslate">data-src=""</code>属性.</p>
 <p><img data-fancybox="gallery" data-src="https://i0.img2ipfs.com/ipfs/QmXtNapJz2XijpRa9AQtrQYNGBY91MmnWa7H1SUF5CiZzN" src="https://i0.img2ipfs.com/ipfs/QmXtNapJz2XijpRa9AQtrQYNGBY91MmnWa7H1SUF5CiZzN"></p>
 <h2><a href="https://github.com/GJKen/gjken.github.io/blob/main/static/GmeekVercount_uv.min.js">GmeekVercount_uv.js</a> - 网站增加访客计数器</h2>
 <blockquote>
@@ -1779,7 +1833,8 @@ pv 修改成 uv 计数.</p>
 <p>下面是修改笔记, 不一定实际使用.</p>
 <h2>&lt;html&gt; 标签样式</h2>
 <p><code class="notranslate">[data-color-mode]</code></p>
-<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>优化 light &amp; dark 主题下的背景色.</p>
+<div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>优化 light &amp; dark 主题下的背景色.<br>
+增加兼容性动画过渡.</p>
 </div>
 <details><summary>修改前</summary>
 <div class="highlight highlight-source-css"><pre class="notranslate">[<span class="pl-c1">data-color-mode</span>] {
@@ -1798,7 +1853,12 @@ pv 修改成 uv 计数.</p>
     <span class="pl-c1">--html-bgColor</span><span class="pl-kos">:</span> <span class="pl-pds"><span class="pl-kos">#</span>fff</span>;<span class="pl-c">/* 增加 */</span>
 }
 [<span class="pl-c1">data-color-mode</span>] {
-    <span class="pl-c1">background-color</span><span class="pl-kos">:</span> <span class="pl-en">var</span>(<span class="pl-s1">--html-bgColor</span>)
+	<span class="pl-c1">color</span><span class="pl-kos">:</span> <span class="pl-en">var</span>(<span class="pl-s1">--fgColor-default</span><span class="pl-kos">,</span> <span class="pl-en">var</span>(<span class="pl-s1">--color-fg-default</span>));
+	<span class="pl-c1">background-color</span><span class="pl-kos">:</span> <span class="pl-en">var</span>(<span class="pl-s1">--html-bgColor</span>);
+	<span class="pl-c1">-webkit-transition</span><span class="pl-kos">:</span> background-color <span class="pl-c1">0.5<span class="pl-smi">s</span></span> ease;<span class="pl-c">/* 增加 */</span>
+	<span class="pl-c1">-moz-transition</span><span class="pl-kos">:</span> background-color <span class="pl-c1">0.5<span class="pl-smi">s</span></span> ease;<span class="pl-c">/* 增加 */</span>
+	<span class="pl-c1">-o-transition</span><span class="pl-kos">:</span> background-color <span class="pl-c1">0.5<span class="pl-smi">s</span></span> ease;<span class="pl-c">/* 增加 */</span>
+	<span class="pl-c1">transition</span><span class="pl-kos">:</span> background-color <span class="pl-c1">0.5<span class="pl-smi">s</span></span> ease;<span class="pl-c">/* 增加 */</span>
 }</pre></div>
 </details>
 <h2>博客滚动条样式</h2>
@@ -2220,9 +2280,20 @@ pv 修改成 uv 计数.</p>
 <p>Github 在 issues 插入的图片也会自动转换为 Github 的地址.</p>
 <p>为了文章的多样性, 在 Gmeek 的<code class="notranslate">v2.19</code>版本中添加了支持 html 标签的功能.</p>
 <p>示例代码:</p>
-<div class="highlight highlight-text-html-basic"><pre class="notranslate">`Gmeek-imgbox<span class="pl-kos">&lt;</span><span class="pl-ent">img</span> <span class="pl-c1">src</span>="<span class="pl-s">https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq</span>"<span class="pl-kos">&gt;</span>`</pre></div>
+<div class="highlight highlight-text-html-basic"><pre class="notranslate">`Gmeek-html<span class="pl-kos">&lt;</span><span class="pl-ent">img</span> <span class="pl-c1">src</span>="<span class="pl-s">https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq</span>"<span class="pl-kos">&gt;</span>`</pre></div>
 <p>效果图:</p>
-<p><img data-fancybox="gallery" data-src="https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq" src="https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq"></p>
+<p><img src="https://i0.img2ipfs.com/ipfs/QmbAZqtwu2G9vXrJ8oC7ixvKh4tY8uL8NvPA9zAxDqWFPq"></p>
+<div class="markdown-alert markdown-alert-important"><p class="markdown-alert-title"><svg class="octicon octicon-report mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</p><p>如果在文章中含有代码块标签并且内容为Gmeek-html, Action 那边会进行转换导致显示错误, 详情看<a href="https://github.com/Meekdai/Gmeek/issues/201" data-hovercard-type="issue" data-hovercard-url="/Meekdai/Gmeek/issues/201/hovercard">#201</a><br>
+<code class="notranslate">gmeek-html</code> 换成小写就没事了.</p>
+</div>
+<h1>优化 Gmeek-html, 标签转换匹配</h1>
+<p>打开<code class="notranslate">Gmeek.py</code></p>
+<p>定位字符串<code class="notranslate">gmeek-html</code></p>
+<p>替换成下面的代码:</p>
+<div class="highlight highlight-source-python"><pre class="notranslate"><span class="pl-k">if</span> <span class="pl-s">'&lt;code class="notranslate"&gt;Gmeek-html'</span> <span class="pl-c1">in</span> <span class="pl-s1">post_body</span>:
+            <span class="pl-s1">post_body</span> <span class="pl-c1">=</span> <span class="pl-s1">re</span>.<span class="pl-en">sub</span>(<span class="pl-s">r'&lt;code class="notranslate"&gt;Gmeek-html(&amp;lt;.*?&amp;gt;)&lt;/code&gt;'</span>, <span class="pl-k">lambda</span> <span class="pl-s1">match</span>: <span class="pl-s1">html</span>.<span class="pl-en">unescape</span>(<span class="pl-s1">match</span>.<span class="pl-en">group</span>(<span class="pl-c1">1</span>)), <span class="pl-s1">post_body</span>, <span class="pl-s1">flags</span><span class="pl-c1">=</span><span class="pl-s1">re</span>.<span class="pl-v">DOTALL</span>)</pre></div>
+<p>原先匹配的内容为:<code class="notranslate">&lt;code class="notranslate"&gt;Gmeek-html(.*?)&lt;/code&gt;</code>, 这样会导致转换文章内容时出现显示错误.</p>
+<p>更改后缩小了匹配范围, 可以直接使用<code class="notranslate">Gmeek-html</code>让其在文章内正常显示.</p>
 <h1>添加自定义单篇文章代码</h1>
 <div class="highlight highlight-text-html-basic"><pre class="notranslate"><span class="pl-kos">&lt;</span><span class="pl-ent">span</span> <span class="pl-c1">id</span>="<span class="pl-s">busuanzi</span>"<span class="pl-kos">&gt;</span>
 :heart:感谢第<span class="pl-kos">&lt;</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span>小伙伴的<span class="pl-kos">&lt;</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span><span class="pl-kos">&lt;/</span><span class="pl-ent">span</span><span class="pl-kos">&gt;</span>次访问关于页面.
