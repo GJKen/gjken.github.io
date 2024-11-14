@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Wed, 13 Nov 2024 18:46:58 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>免费CDN- jsDelivr+Github 使用方法</title><link>https://gjken.github.io/post/3.html</link><description># jsDelivr 官网&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Thu, 14 Nov 2024 05:58:39 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>免费CDN- jsDelivr+Github 使用方法</title><link>https://gjken.github.io/post/3.html</link><description># jsDelivr 官网&#13;
 &#13;
 &gt; https://www.jsdelivr.com&#13;
 &#13;
@@ -11,11 +11,13 @@
 &#13;
 进入仓库点击 releases.&#13;
 &#13;
-`Gmeek-html&lt;img src='https://i0.img2ipfs.com/ipfs/QmU1czFFqTS8kx6nkc52dxxdJHw3ASpeGGHCYmUgRxcBxM'&gt;`&#13;
+`Gmeek-imgbox&lt;img src='https://i0.img2ipfs.com/ipfs/QmU1czFFqTS8kx6nkc52dxxdJHw3ASpeGGHCYmUgRxcBxM'&gt;`&#13;
 &#13;
-`Gmeek-html&lt;img src='https://ipfs.mbzj.org/ipfs/QmcPKqqhyTPZrsbvDW5KcibNfEFN55t6yecS71yAL8Nh7F'&gt;`&#13;
+`Gmeek-imgbox&lt;img src='https://i0.img2ipfs.com/ipfs/QmcPKqqhyTPZrsbvDW5KcibNfEFN55t6yecS71yAL8Nh7F'&gt;`&#13;
 &#13;
-`Gmeek-html&lt;img src='https://ipfs.mbzj.org/ipfs/QmZEczMS98W1qbcHJXhn6NtVXkC9UwdjP417hFRpkCTphh'&gt;`&#13;
+`Gmeek-imgbox&lt;img src='https://i0.img2ipfs.com/ipfs/QmZEczMS98W1qbcHJXhn6NtVXkC9UwdjP417hFRpkCTphh'&gt;`&#13;
+&#13;
+测试`gmeek-imgbox`&#13;
 &#13;
 # 使用方法&#13;
 &#13;

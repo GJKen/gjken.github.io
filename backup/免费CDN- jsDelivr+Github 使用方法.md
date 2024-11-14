@@ -10,11 +10,13 @@
 
 进入仓库点击 releases.
 
-`Gmeek-html<img src="https://i0.img2ipfs.com/ipfs/QmU1czFFqTS8kx6nkc52dxxdJHw3ASpeGGHCYmUgRxcBxM">`
+`Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmU1czFFqTS8kx6nkc52dxxdJHw3ASpeGGHCYmUgRxcBxM">`
 
-`Gmeek-html<img src="https://ipfs.mbzj.org/ipfs/QmcPKqqhyTPZrsbvDW5KcibNfEFN55t6yecS71yAL8Nh7F">`
+`Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmcPKqqhyTPZrsbvDW5KcibNfEFN55t6yecS71yAL8Nh7F">`
 
-`Gmeek-html<img src="https://ipfs.mbzj.org/ipfs/QmZEczMS98W1qbcHJXhn6NtVXkC9UwdjP417hFRpkCTphh">`
+`Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmZEczMS98W1qbcHJXhn6NtVXkC9UwdjP417hFRpkCTphh">`
+
+测试`gmeek-imgbox`
 
 # 使用方法
 
