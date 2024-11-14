@@ -5456,11 +5456,14 @@
 [data-color-mode=dark][data-dark-theme=dark]::selection {
 	--body-bgColor: #3b3b3ba3;
 	--body-shadow-color: #52afff3d;
-	--markdown-code-color: #3bf6ff52;
+	--markdown-code-bgColor: #3bf6ff52;
+	--markdown-blockquote-color: #ffffff8c;
+	--markdown-blockquote-borderLeft-color: #bbbbbb8c;
+	--markdown-pre-bgColor: #27282d;
 	--SideNav-bgColor: #ffffff21;
 	--title-right-btnbg-color: #46ffff61;
+	--title-right-svg-color: #00f0ff;
 	--markdown-h1-bgColor: #7dc2ff7a;
-	--markdown-imgShadow: #b8fffc29;
 	--html-bgColor: #151c2f;
 	--color-canvas-default-transparent: rgba(13, 17, 23, 0);
 	--color-page-header-bg: #0d1117;
@@ -12270,7 +12273,11 @@
 
 [data-color-mode] {
 	color: var(--fgColor-default, var(--color-fg-default));
-	background-color: var(--html-bgColor)
+	background-color: var(--html-bgColor);
+	-webkit-transition: background-color 0.5s ease;
+	-moz-transition: background-color 0.5s ease;
+	-o-transition: background-color 0.5s ease;
+	transition: background-color 0.5s ease;
 }
 
 @media(forced-colors: active) {
@@ -12340,12 +12347,15 @@ template,
 }
 
 a {
-	text-decoration: none !important;
-	background: #0000;
+	background: #90d1ff;
 	background: linear-gradient(#90d1ff, #90d1ff) no-repeat left bottom;
 	background-size: 0 2px;
-	-webkit-transition: all 0.25s ease;
 	transition: all 0.25s ease;
+	-webkit-transition: all 0.25s ease;
+}
+
+.markdown-body a:hover {
+	background-size: 100% 2px;
 }
 
 abbr[title] {
@@ -12521,8 +12531,8 @@ body {
 	background: var(--body-bgColor);
 	box-shadow: 0 0 100px var(--body-shadow-color);
 }
-/*
 
+/* header可以通过Gmeek仓库修改, 这边直接注释了
 #header {
 	flex-direction: column !important;
 	align-items: center !important;
@@ -12530,7 +12540,6 @@ body {
 	padding-bottom: 0 !important;
 	margin-bottom: 24px !important
 }
-
 
 #header h1 {
 	display: flex;
@@ -12543,26 +12552,22 @@ body {
 	margin: unset !important;
 }
 
-.avatar:hover {
-	transform: scale(1.5) rotate(720deg) !important;
-	box-shadow: 0 0 10px rgb(45 250 255 / 74%);
-}
-
-
 .title-right,
 .title-right.circle,
 .title-right a {
 	margin: unset !important;
 	transition: 0.25s;
 }
+
+.avatar:hover {
+	transform: scale(1.5) rotate(720deg) !important;
+	box-shadow: 0 0 10px rgb(45 250 255 / 74%);
+}
 */
+
 a {
 	color: var(--fgColor-accent, var(--color-accent-fg));
 	text-decoration: none
-}
-
-.markdown-body a:hover {
-	background-size: 100% 2px;
 }
 
 b,
@@ -13580,6 +13585,11 @@ a.btn-primary:focus-visible {
 	background-color: var(--title-right-btnbg-color);
 	outline: none;
 	box-shadow: none
+}
+
+.btn-invisible:hover svg,
+.btn-invisible.zeroclipboard-is-hover svg {
+	fill: var(--title-right-svg-color);
 }
 
 .btn-invisible:active,
@@ -16266,12 +16276,15 @@ input.FormControl-radio[type=radio]:focus-visible {
 	--Layout-inner-spacing-max: 0px;
 	--body-bgColor: #ffffffde;
 	--body-shadow-color: #50a8e726;
-	--markdown-code-color: #4d4d4d38;
-	--title-right-btnbg-color: #46ffff61;
+	--markdown-code-bgColor: #4d4d4d38;
+	--title-right-btnbg-color: #b7dbff61;
+	--title-right-svg-color: #71baff;
 	--SideNav-bgColor: #ffffff99;
 	--SideNav-hover-bgColor: #6ec3ff52;
-	--markdown-imgShadow: #0000000d;
 	--markdown-h1-bgColor: #c8e5ff7a;
+	--markdown-blockquote-color: #656d76;
+	--markdown-blockquote-borderLeft-color: #d0d7de;
+	--markdown-pre-bgColor: #f6f8fa;
 	--html-bgColor: #fff;
 	--animate-duration: 1s
 }
@@ -17368,10 +17381,6 @@ a.tabnav-extra:hover {
 
 .SideNav-item:first-child {
 	border-top: 0
-}
-
-.SideNav-item:last-child {
-	box-shadow: 0 1px 0 var(--borderColor-default, var(--color-border-default))
 }
 
 .SideNav-item::before {
@@ -27270,8 +27279,8 @@ a.branch-name .octicon {
 
 .markdown-body blockquote {
 	padding: 0 1em;
-	color: var(--fgColor-muted, var(--color-fg-muted));
-	border-left: .25em solid var(--borderColor-default, var(--color-border-default))
+	color: var(--markdown-blockquote-color);
+	border-left: .25em solid var(--markdown-blockquote-borderLeft-color)
 }
 
 .markdown-body blockquote>:first-child {
@@ -27342,11 +27351,19 @@ a.branch-name .octicon {
 
 .markdown-body h1 {
 	background: var(--markdown-h1-bgColor);
-	border-radius: 10px;
-	font-size: 2em;
+	border-radius: 6px;
+	font-size: 1.85em;
 	border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
+	border-left: .25em solid #32c7dd;
 }
 
+.markdown-body h2 {
+	padding-bottom: .3em;
+	font-size: 1.5em;
+	border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted))
+}
+
+/*
 .markdown-body h2 {
 	font-size: 1.5em;
 	border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
@@ -27355,6 +27372,7 @@ a.branch-name .octicon {
 	-webkit-transition: all 0.25s ease;
 	transition: all 0.25s ease;
 }
+*/
 
 .markdown-body h2:hover {
 	background-size: 100% 2px;
@@ -27504,10 +27522,26 @@ a.branch-name .octicon {
 	background-color: rgba(0, 0, 0, 0)
 }
 
+
+/* 图片hover */
+.markdown-body p {
+	position: relative;
+	overflow: visible;
+	clip-path: inset(0);
+	-webkit-clip-path: inset(0);
+}
+
 .markdown-body img {
 	max-width: 100%;
 	box-sizing: content-box;
-	box-shadow: 0 4px 8px 0 var(--markdown-imgShadow), 0 -4px 8px 0 var(--markdown-imgShadow)
+	transition: transform 0.3s ease, clip-path 0.3s ease;
+	-webkit-transition: -webkit-transform 0.3s ease, -webkit-clip-path 0.3s ease;
+}
+
+.markdown-body img:hover {
+	transform: scale(1.01);
+	clip-path: inset(-4%);
+	cursor: zoom-in;
 }
 
 .markdown-body img[align=right] {
@@ -27618,7 +27652,7 @@ a.branch-name .octicon {
 	margin: 0;
 	font-size: 85%;
 	white-space: break-spaces;
-	background-color: var(--markdown-code-color);
+	background-color: var(--markdown-code-bgColor);
 	border-radius: 6px
 }
 
@@ -27668,7 +27702,7 @@ a.branch-name .octicon {
 	font-size: 85%;
 	line-height: 1.45;
 	color: var(--fgColor-default, var(--color-fg-default));
-	background-color: var(--bgColor-muted, var(--color-canvas-subtle));
+	background-color: var(--markdown-pre-bgColor);
 	border-radius: 6px
 }
 
@@ -28229,18 +28263,22 @@ a.branch-name .octicon {
 }
 
 ::-webkit-scrollbar {
-	width: 10px;
-	height: 10px;
+	width: 8px;
+	height: 8px;
 }
 
 ::-webkit-scrollbar-thumb {
 	border-radius: 10px;
-	background: #9fc6e3;
+	background: #97d3ffa1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #81b5daa1;
 }
 
 /* Firefox */
 html {
-	scrollbar-color: #9fc6e3 transparent;
+	scrollbar-color: #97d3ffa1 transparent;
 	scrollbar-width: thin;
 }
 
@@ -30838,7 +30876,7 @@ html {
 	z-index: -2 !important
 }
 
-@keyframes heartBeatScale  {
+@keyframes heartBeatScale {
 	0% {
 		-webkit-transform: scale(1);
 		transform: scale(1)
@@ -30864,18 +30902,44 @@ html {
 		transform: scale(1)
 	}
 }
+
 @keyframes heartBeatColor {
-    0%, 28%, 70%, 100% {
-        fill: #ff5a5a; /* 初始颜色 */
-    }
-    14%, 42% {
-        fill: red; /* 放大时颜色变化 */
-    }
+
+	0%,
+	28%,
+	70%,
+	100% {
+		fill: #ff5a5a;
+		/* 初始颜色 */
+	}
+
+	14%,
+	42% {
+		fill: red;
+		/* 放大时颜色变化 */
+	}
 }
 
 .animate_heartBeatScale {
 	animation: heartBeatScale 1.3s infinite ease-in-out, heartBeatColor 1.3s infinite ease-in-out;
 	-webkit-animation: heartBeatScale 1.3s infinite ease-in-out, heartBeatColor 1.3s infinite ease-in-out;
+}
+
+/* 一键复制出入动画 */
+.clipboard-container {
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	transition: opacity 0.3s ease, visibility 0s 0.3s;
+	-webkit-transition: opacity 0.3s ease, visibility 0s 0.3s
+}
+
+.highlight:hover .clipboard-container {
+	opacity: 1;
+	visibility: visible;
+	pointer-events: auto;
+	transition: opacity 0.3s ease, visibility 0s 0s;
+	-webkit-transition: opacity 0.3s ease, visibility 0s 0s
 }
 
 /*# sourceMappingURL=primer.css.map */
