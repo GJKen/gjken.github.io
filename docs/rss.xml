@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Thu, 14 Nov 2024 09:42:13 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>免费CDN- jsDelivr+Github 使用方法</title><link>https://gjken.github.io/post/3.html</link><description># jsDelivr 官网&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Thu, 14 Nov 2024 10:16:29 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>免费CDN- jsDelivr+Github 使用方法</title><link>https://gjken.github.io/post/3.html</link><description># jsDelivr 官网&#13;
 &#13;
 &gt; https://www.jsdelivr.com&#13;
 &#13;
@@ -56,13 +56,13 @@ test1.jsdelivr.net&#13;
 2024 年 11 月 7 日 14:55&#13;
 游戏已通关——&#13;
 &#13;
-官方原图:&#13;
+`Gmeek-imgbox&lt;img src='https://pbs.twimg.com/media/GbwoZNVbcAAHunh?format=jpg&amp;name=orig'&gt;`&#13;
 &#13;
-![](https://pbs.twimg.com/media/GbwoZNVbcAAHunh?format=jpg&amp;name=large)&#13;
+其它推文:&#13;
 &#13;
-其它图:&#13;
+https://x.com/sao_anime/status/1852274390312141212&#13;
 &#13;
-`Gmeek-html&lt;img src='https://ipfs.mbzj.org/ipfs/QmYFn48JVvUS8bd1zgPP3TWq7PKJbkKffYZEirBkJrgnJa'`。</description><guid isPermaLink="true">https://gjken.github.io/post/2.html</guid><pubDate>Tue, 12 Nov 2024 18:41:53 +0000</pubDate></item><item><title>Gmeek - 记录使用过程</title><link>https://gjken.github.io/post/1.html</link><description>[Gmeek](https://github.com/Meekdai/Gmeek) 博客完全依托 Github, 提供域名, 无需服务器, 比起传统的服务器建站更方便快捷.&#13;
+`Gmeek-imgbox&lt;img src='https://pbs.twimg.com/media/Gbtc4f-aMAAIYZv?format=jpg&amp;name=orig'&gt;`。</description><guid isPermaLink="true">https://gjken.github.io/post/2.html</guid><pubDate>Tue, 12 Nov 2024 18:41:53 +0000</pubDate></item><item><title>Gmeek - 记录使用过程</title><link>https://gjken.github.io/post/1.html</link><description>[Gmeek](https://github.com/Meekdai/Gmeek) 博客完全依托 Github, 提供域名, 无需服务器, 比起传统的服务器建站更方便快捷.&#13;
 &#13;
 # 搭建博客&#13;
 &#13;
