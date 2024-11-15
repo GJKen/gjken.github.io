@@ -42,20 +42,25 @@
 ## [ArticleToc.js](https://github.com/GJKen/gjken.github.io/blob/main/static/ArticleToc.js) - 文章增加目录列表+一键返回顶部按钮
 
 > 来源: [Github](https://github.com/cao-gift/cao-gift.github.io?tab=readme-ov-file)
-> 修改-切换博客主题时颜色不一致, 增加滚动同步定位章节, 修改动画和样式.
-> 已知bug: 给body增加`backdrop-filter: blur(30px);`样式时, 会出现滚动错误. 待后续修复.
+> 修改-创建`.toc`的位置为body里面.
+> 修改-批量给 a 标签创建的类名为: `toc-h1` `toc-h2` ... `toc-h6`
+> 修改-适配切换博客主题颜色.
+> 修改-增加滚动页面同时滚动章节.
+> 修改-动画和样式.
+> 修改-滚动页面自动显示&隐藏返回顶部按钮.
+> 已知bug: 给body增加`backdrop-filter: blur(30px);`样式时, 会出现页面异常, 待后续修复.
 
 图示:
 
-`Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmZZc1AEpcDTUiasyp6qkGx4h2K7btob9U4c9RAgrTMnx1">`
+`Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmcZLXt281ogUR7bUqReAWRhecnbGaftfaGu2wu2qugV4H">`
 
 ## Fancybox.js - 图片浏览器
 
 > Fancybox [官网](https://www.fancyapps.com)
 
-### 安装 Fancybox
+### 引用 Fancybox 所需文件
 
-给文章引用 CSS 和 JS 标签, 注意末尾的标点符号.
+#### 给文章引用 CSS 和 JS 标签, 注意末尾的标点符号.
 
 我这里用的是`5.0`版本, cdn 加速链接.
 
@@ -79,7 +84,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 意思是页面加载完成后, 加载 fancybox 所需的 CSS 文件, 同时增加 fancybox 必要的绑定函数.
 
-### 修改 Gmeek 仓库的 Gmeek.py
+#### 修改 Gmeek 仓库的 Gmeek.py
+
+> 不知道怎么自定义 Gmeek 仓库的看这👉`Gmeek-html<a href="#通过-gmeek-仓库-diy-博客">通过 Gmeek 仓库 DIY 博客</a>`
 
 打开`Gmeek.py`文件, 定位字符串`Gmeek-html`
 
@@ -173,6 +180,54 @@ if '<code class="notranslate">Gmeek-imgbox' in post_body:
 	-moz-transition: background-color 0.5s ease;/* 增加 */
 	-o-transition: background-color 0.5s ease;/* 增加 */
 	transition: background-color 0.5s ease;/* 增加 */
+}
+```
+
+</details>
+
+## \<body> 标签样式
+
+`body`
+
+> [!NOTE]
+> 优化 light & dark 主题下的背景色.
+
+<details><summary>修改前</summary>
+
+```css
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	font-size: var(--body-font-size, 14px);
+	line-height: 1.5;
+	color: var(--fgColor-default, var(--color-fg-default));
+	background-color: var(--bgColor-default, var(--color-canvas-default))
+}
+```
+
+</details>
+
+<details><summary>修改后</summary>
+
+```css
+[data-color-mode=light][data-light-theme=dark],
+[data-color-mode=light][data-light-theme=dark]::selection,
+[data-color-mode=dark][data-dark-theme=dark],
+[data-color-mode=dark][data-dark-theme=dark]::selection {
+    --body-bgColor: #3b3b3bd9;/* 增加 */
+	--body-shadow-color: #52afff3d;/* 增加 */
+}
+:root {
+    --body-bgColor: #ffffffde;/* 增加 */
+	--body-shadow-color: #50a8e726;/* 增加 */
+}
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+	font-size: var(--body-font-size, 14px);
+	line-height: 1.5;
+	color: var(--fgColor-default, var(--color-fg-default));
+	background: var(--body-bgColor);
+	box-shadow: 0 0 100px var(--body-shadow-color);/* 增加 */
+	border-radius: 10px;/* 增加 */
 }
 ```
 
@@ -346,13 +401,57 @@ html {
 > [!NOTE]
 > 直接移除这个选择器的所有样式.
 
+## 文章标题通用样式
+
+`.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6`
+
+> [!NOTE]
+> 删除左右 padding.
+
+<details><summary>修改前</summary>
+
+```css
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	padding: .22em;
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: var(--base-text-weight-semibold, 600);
+	line-height: 1.25
+}
+```
+
+</details>
+<details><summary>修改后</summary>
+
+```css
+.markdown-body h1,
+.markdown-body h2,
+.markdown-body h3,
+.markdown-body h4,
+.markdown-body h5,
+.markdown-body h6 {
+	padding: .22em 0;
+	margin-top: 24px;
+	margin-bottom: 16px;
+	font-weight: var(--base-text-weight-semibold, 600);
+	line-height: 1.25
+}
+```
+
+</details>
+
 ## 文章 \<h1> 标签样式
 
 `.markdown-body h1`
 
 > [!NOTE]
 > 修改字体大小1.85em.
-> 删除padding.
+> 删除下 padding, 增加左 padding .22em.
 > 优化 light & dark 主题下的背景色.
 
 <details><summary>修改前</summary>
@@ -379,11 +478,13 @@ html {
     --markdown-h1-bgColor: #c8e5ff7a;/* 增加 */
 }
 .markdown-body h1 {
+	padding-left: .22em;
     background: var(--markdown-h1-bgColor);/* 增加 */
     border-radius: 6px;/* 增加 */
     font-size: 1.85em;
     border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
     border-left: .25em solid #32c7dd;/* 增加 */
+    padding-left: .25em;/* 增加 */
 }
 ```
 
@@ -802,7 +903,9 @@ if '<code class="notranslate">Gmeek-html' in post_body:
             post_body = re.sub(r'<code class="notranslate">Gmeek-html(&lt;.*?&gt;)</code>', lambda match: html.unescape(match.group(1)), post_body, flags=re.DOTALL)
 ```
 
-原先匹配的内容为:`<code class="notranslate">Gmeek-html(.*?)</code>`, 这样会导致转换文章内容时出现显示错误.
+原先匹配的内容为:`<code class="notranslate">Gmeek-html(.*?)</code>`,
+
+这种情况下, 如果在文章中含有代码块标签并且内容含有 Gmeek-html, 会导致转换文章内容时出现显示错误,
 
 更改后缩小了匹配范围, 可以直接使用`Gmeek-html`让其在文章内正常显示.
 
@@ -820,16 +923,16 @@ if '<code class="notranslate">Gmeek-html' in post_body:
 
 | Label Name | Color | 效果
 |-|-|-
-| 网站 | #218155 | ![Badge](https://img.shields.io/badge/%E7%BD%91%E7%AB%99-%237057FF-7057FF)
-| 日常 | #008672 | ![Badge](https://img.shields.io/badge/%E6%97%A5%E5%B8%B8-%23008672-008672)
-| 教程 | #0075ca | ![Badge](https://img.shields.io/badge/%E6%95%99%E7%A8%8B-%230075CA-0075CA)
-| Anime | #E77AB1 | ![Badge](https://img.shields.io/badge/Anime-%23E77AB1-E77AB1)
-| Win  | #5AB3F3 | ![Badge](https://img.shields.io/badge/Win-%235AB3F3-5AB3F3)
-| JS | #AD3152 | ![Static Badge](https://img.shields.io/badge/JS-%23AD3152-AD3152)
-| CSS | #AD3152 | ![Badge](https://img.shields.io/badge/CSS-%23218155-218155)
-| Github | #333333 | ![Static Badge](https://img.shields.io/badge/Github-%23333333-333333)
-| CDN | #cb222c | ![Badge](https://img.shields.io/badge/CDN-%23cb222c-cb222c)
-| Bug | #D73A4A | ![Static Badge](https://img.shields.io/badge/Bug-%23D73A4A-D73A4A)
+| 网站 | #218155 | ![Badge](https://img.shields.io/static/v1?label=&message=网站&color=218155)
+| 日常 | #008672 | ![Badge](https://img.shields.io/static/v1?label=&message=日常&color=008672)
+| 教程 | #0075ca | ![Badge](https://img.shields.io/static/v1?label=&message=教程&color=0075ca)
+| Anime | #E77AB1 | ![Badge](https://img.shields.io/static/v1?label=&message=Anime&color=E77AB1)
+| Win  | #5AB3F3 | ![Badge](https://img.shields.io/static/v1?label=&message=Win&color=5AB3F3)
+| JS | #AD3152 | ![Badge](https://img.shields.io/static/v1?label=&message=JS&color=AD3152)
+| CSS | #218155 | ![Badge](https://img.shields.io/static/v1?label=&message=CSS&color=218155)
+| Github | #333333 | ![Badge](https://img.shields.io/static/v1?label=&message=Github&color=333333)
+| CDN | #cb222c | ![Badge](https://img.shields.io/static/v1?label=&message=CDN&color=cb222c)
+| Bug | #D73A4A | ![Badge](https://img.shields.io/static/v1?label=&message=Bug&color=D73A4A)
 
 # Readme.md
 
