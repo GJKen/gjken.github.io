@@ -768,7 +768,7 @@ fork 之后, 转到搭建博客的 github 源码,
 
 `Gmeek-imgbox<img src="https://i0.img2ipfs.com/ipfs/QmWcdviYe3A5bmtjCjhFeFA8VaczcvTQ2HDMB5aUAnkg3v">`
 
-这里我直接写改成我存放的链接 https://gjken.github.io/primer.css
+这里我直接写改成我存放的链接 https://cdn.jsdelivr.net/gh/gjken/gjken.github.io@v1.0/static/primer.min.css
 
 ## 修改页面头部样式
 
