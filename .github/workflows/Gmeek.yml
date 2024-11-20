@@ -5,8 +5,8 @@ on:
   issues:
     types: [opened, edited]
   schedule:
-    - cron: "0 16 * * *"
-    
+    - cron: "* * * * 0"
+
 jobs:
   build:
     name: Generate blog
@@ -54,7 +54,7 @@ jobs:
           cp -a /opt/Gmeek/docs ${{ github.workspace }} 
           cp -a /opt/Gmeek/backup ${{ github.workspace }} 
           cp /opt/Gmeek/blogBase.json ${{ github.workspace }} 
-          
+
       - name: update html
         run: |
           git config --local user.email "$(jq -r ".email" config.json)"
@@ -63,12 +63,12 @@ jobs:
           git commit -a -m '🎉auto update by Gmeek action' || echo "nothing to commit"
           git push || echo "nothing to push"
           sleep 3
-          
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: 'docs/.'
-          
+
   deploy:
     name: Deploy blog
     runs-on: ubuntu-20.04
