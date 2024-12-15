@@ -19,24 +19,20 @@
 [data-color-mode=light][data-light-theme=dark],[data-color-mode=light][data-light-theme=dark]::selection,[data-color-mode=dark][data-dark-theme=dark],[data-color-mode=dark][data-dark-theme=dark]::selection{--header-article-bgColor:#ffffff00;}
 @keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@keyframes blink{50%{opacity:0}100%{opacity:1}}@-webkit-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes blink{50%{opacity:0}100%{opacity:1}}
 body{box-sizing:border-box;min-width:200px;max-width:900px;margin:20px auto;padding:45px;font-size:16px;font-family:sans-serif;line-height:1.25;}
-#header{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;}
-#header.article-header{border-bottom:none;width:100%;max-width:inherit;position:fixed;top:0;left:50%;transform:translateX(-50%);background:var(--header-articel-bgColor);backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);padding:10px;box-shadow:0 2px 10px rgba(0, 0, 0, .1);transition:transform 0.6s ease-in-out;-webkit-transition:transform 0.6s ease-in-out;z-index:99;border-radius:0 0 15px 15px;gap:15px;}
-#header.article-header.hidden{transform:translate(-50%,-120%);}
-#header h1 a{margin:unset;}
-.title-right{display:flex;gap:25px;animation:fadeIn 1.2s ease-in 0s forwards;}
+#header .homepage-header{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;}
+#functionBtn{display:flex;justify-content:center;margin:20px 0;gap:20px;}
+#functionBtn a, #functionBtn div{padding:14px 16px;}
 #footer{margin-top:64px; text-align:center;font-size:small;}
 
 </style>
 
 <style>
 .tagTitle{margin:auto 0;font-size:40px;font-weight:bold;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
-.title-right{display:flex;align-items:center;flex-direction: column;}
-.title-right .circle{padding: 14px 16px;}
-.header-TagBtn{}
 
-.subnav-search{width:222px;margin-top:8px;margin-right:8px;}
-.subnav-search-input{width:160px;border-top-right-radius:0px;border-bottom-right-radius:0px;}
-.subnav-search button{padding:5px 8px;border-top-left-radius:0px;border-bottom-left-radius:0px;}
+#header{display:flex;flex-direction:column;align-items:center;gap:25px;}
+
+.subnav-search-input{width:200px;}
+.subnav-search button{padding:5px 8px;}
 
 .SideNav-icon{margin-right:16px}
 .Label{color: #fff;margin-left:4px;}
@@ -56,32 +52,30 @@ body{box-sizing:border-box;min-width:200px;max-width:900px;margin:20px auto;padd
 </style>
 
 
-<body class="homepage">
-    <div id="header" class="article-content">
+<body class="tag">
+    <div id="header" class="homepage-header">
 <span class="tagTitle"><span>Loading</span><span class="AnimatedEllipsis"></span></span>
-<div class="title-right">
-    <div class="subnav-search">
-        <input type="search" class="form-control subnav-search-input float-left" aria-label="Search site" value="" style="height:32px;">
-        <button class="btn float-left" type="submit" onclick="javascript:searchShow()">搜索</button>
-        <svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
-            <path id="searchSVG" fill-rule="evenodd"></path>
-        </svg>
-    </div>
-	<div class="header-TagBtn">
-		<a href="https://gjken.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
-			<svg class="octicon" width="16" height="16">
-				<path id="pathHome" fill-rule="evenodd"></path>
-			</svg>
-		</a>
-		<a class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
-			<svg class="octicon" width="16" height="16" >
-				<path id="themeSwitch" fill-rule="evenodd"></path>
-			</svg>
-		</a>
-	</div>
+<div class="subnav-search">
+	<input type="search" class="form-control subnav-search-input float-left" aria-label="Search site" value="" style="height:32px;">
+	<button class="btn float-left" type="submit" onclick="javascript:searchShow()">搜索</button>
+	<svg class="subnav-search-icon octicon octicon-search" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true">
+		<path id="searchSVG" fill-rule="evenodd"></path>
+	</svg>
 </div>
 </div>
-    <div id="content" class="homepage-content">
+    <div id="functionBtn">
+<a href="https://gjken.github.io" id="buttonHome" class="btn btn-invisible circle" title="首页">
+	<svg class="octicon" width="16" height="16">
+		<path id="pathHome" fill-rule="evenodd"></path>
+	</svg>
+</a>
+<a class="btn btn-invisible circle" onclick="modeSwitch()" title="切换主题">
+	<svg class="octicon" width="16" height="16" >
+		<path id="themeSwitch" fill-rule="evenodd"></path>
+	</svg>
+</a>
+</div>
+    <div id="content">
 <div id="taglabel" style="margin-bottom:8px;"></div>
 <nav class="SideNav"></nav>
 <div class="notFind" style="display:none;font-size:24px;margin:8px;">Not Find</div>
