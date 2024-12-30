@@ -27384,6 +27384,7 @@ a.branch-name .octicon {
 	font-size: 1.85em;
 	border-left: .25em solid #32c7dd;
 	padding-left: .25em;
+	margin-top: 42px
 }
 
 .markdown-body h2 {
@@ -27393,17 +27394,6 @@ a.branch-name .octicon {
 	display: inline-block;
 	border-radius: 6px;
 }
-
-/*
-.markdown-body h2 {
-	font-size: 1.5em;
-	border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));
-	background: linear-gradient(45deg, #90d1ff, transparent) no-repeat left bottom;
-	background-size: 0 2px;
-	-webkit-transition: all 0.25s ease;
-	transition: all 0.25s ease;
-}
-*/
 
 .markdown-body h2:hover {
 	background-size: 100% 2px;
