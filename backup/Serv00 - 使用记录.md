@@ -8,7 +8,7 @@
 进入 Additional services 选项卡中找到 Run your own applications 项目,
 如下图所示, 必须要设置成如图所示的 Enabled.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmSxxUuqJmk7f3HK7jSSzrTRa8fHRLYpNWq7JVzQ2pvpbM"`
+![]https://github.com/user-attachments/assets/39b82af5-8dc0-4dbc-800a-124ccd1c64d4)
 
 如果不开启这一项, 自己的用户目录下的所有文件都无法添加可执行权限.
 
@@ -21,7 +21,7 @@
 每个账户只能创建3个端口.
 其中一个用来反代本地搭建 Alist 的端口, 这里我用 26666 端口.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmaeNdqmf9RMN6DxDiQUUEnY7F4ng4A5YmL28jsKG7TCt1"`
+![]https://github.com/user-attachments/assets/950d6c90-56cf-457a-86fa-b9f1ff953257)
 
 ### 创建网站
 
@@ -29,7 +29,7 @@
 
 下图我写的是自己的域名.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmQrk88sEBPW1pykSdshM9L6gwSrANTE9wvRY1ySk5sjGW"`
+![image](https://github.com/user-attachments/assets/7a00527b-a545-48a2-8029-2d4c2b047b3c)
 
 其中 26666 这个端口是 Alist 服务的端口.
 
@@ -37,11 +37,11 @@
 
 站点创建完成后, 点击上方的 Manage SSL certificates, 再点击 Manage.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/Qmdr6rNkRPJQDpwaG4wcRDddjKtCWWwUFujpY662HH8HJf"`
+![](https://github.com/user-attachments/assets/15e58806-d2f0-43de-bf8d-97905680e8cc)
 
-点击 Add certificate, 最后点击 Add 完成创建证书.
+点击 Add certificate, 确认好要创建证书的域名, 最后点击 Add 完成创建证书.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmbGd8SafDnUUWpwaFgcAStzSPoc9w3gR6qj5RBRsay67D"`
+![](https://github.com/user-attachments/assets/6371d2eb-6cb7-4cd8-9cd3-b4800b20bfa7)
 
 ### 安装 Alist
 
@@ -68,7 +68,7 @@ mkdir -p ~/domains/alist && cd ~/domains/alist && curl -L -o alist.tar.gz https:
 
 回到 Panel 面板, 找到 MySQL 选项卡, 使用 Add database 功能新建一个数据库:
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmbLyHtCapJsYyg2LHckgYGpkuGcCnAbPkpnNR2CawrV82"`
+![]https://github.com/user-attachments/assets/dcad4052-e060-4ac8-85cd-4ff6afd65557)
 
 Database name 和 Username 字段为了方便好记就写 Alist 就行了.
 
@@ -80,11 +80,11 @@ Database name 和 Username 字段为了方便好记就写 Alist 就行了.
 
 定位这个`config.json`文件, 双击编辑它:
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmUz4eAt1DMDzxHNyYnRrrYJx1uwjrCcR61BKAGZDXYutz"`
+![]https://github.com/user-attachments/assets/73980333-7b81-4f5a-836f-8ee7072372b8)
 
 我主要修改了`CDN` `database` `scheme`三个部分,
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmZSbd9AMpbHWfzdNzt3EDD5ke6UjsAC77DeaG4syNpKWw"`
+![]https://github.com/user-attachments/assets/f76aafe2-8c6b-4fff-bed9-2ce87aea19b0)
 
 <table>
   <tr>
@@ -139,29 +139,27 @@ Database name 和 Username 字段为了方便好记就写 Alist 就行了.
 ./alist server
 ```
 
-`Gmeek-imgbox="https://ipfs.io/ipfs/Qmdw9VRvPnosHNGuZbEoi1EAr6GYxxDFmrbFM2BdB8orSD"`
+![终端](https://github.com/user-attachments/assets/58ac371d-1492-497b-b788-2e410adfc9be)
 
 运行正常, 显示的管理员账号的密码一定要记住. 接着使用 Ctrl+c 停止运行.
 
 ### 自定义域名绑定
 
-我这边使用 [us.kg]()的免费域名进行访问 Alist.
+我这边使用 [us.kg](https://nic.us.kg) 的免费域名进行访问 Alist.
 
 因为 serv00 的域名基本上都会被墙, 没办法只能用~~Cloudflare减速器~~跨墙了, ~~CDN 回源加速不会弄.~~
 
 我们进入 https://dash.cloudflare.com
 
-点击添加域, 再输入自己的域名, 选择最底下的 free 计划.
+点击添加域, 再输入自己的域名, 选择最底下的 free 计划一路创建.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmcFYHqU8iTz77vEzVUkrHkMiQUcJ1mCjBz2u6q9mszmaD"`
+然后复制 Cloudflare 给的 dns 名称服务器.
 
-复制 dns 名称服务器.
-
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmakCvRG52FLk2NV1XFjmWmz5LZuhPg3oD2SdiTunQH8TU"`
+![]https://github.com/user-attachments/assets/789049b8-b944-4862-b5f2-dcb8d396bc1a)
 
 然后转到你的域名提供服务商, 添加 dns 记录.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmUN7NYdHmRnLgHEGtFdHF3ygCtkVsR6WyRyhsX9nhDB1a"`
+![]https://github.com/user-attachments/assets/78a5b240-ca86-4ff1-96f3-9b0f5386d313)
 
 如果没问题就可以通过自定义域名访问了.
 
@@ -185,7 +183,7 @@ echo "$(date '+%Y-%m-%d %H:%M:%S')" > ~/domains/alist/logfile.txt
 
 计划任务执行的是我的`runAlist.sh`. 如下图:
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmSNKpcsXM2xbaubLF9fAWV4irZpaL74rsAQUfu22kPw2W"`
+![]https://github.com/user-attachments/assets/44941b64-1c4b-4063-8a57-ec8c305f4553)
 
 成功后不出意外的话, 隔一段时间进入 Alist 网盘需要重新登陆账号, 因为定时脚本会先杀原来的 Alist 进程再重启.
 
@@ -444,15 +442,15 @@ function delay(ms) {
 
 名字随意, 建议写`Serv00Keep`方便好记, 然后右下角点部署.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/Qmc15LLyu3pEnWWvtxHqK48AHv49FMaXYPTgfw96JNqELt"`
+![]https://github.com/user-attachments/assets/696581ca-d3c2-475c-8b0c-490245f61bf7)
 
 部署完成后点击编辑代码.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmQkE6PnCBAC5Ug3pKMb6ffgTW9ybFNNhEFzkcSNSNDsXu"`
+![]https://github.com/user-attachments/assets/54428f5e-311c-43ad-ba0e-b25a7e4e9606)
 
-粘贴 Worker 代码, 粘贴好之后点击部署.
+粘贴 JavaScript 代码, 粘贴好之后点击部署.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmPh4ziXe3Wg4cagzdq5vzyn3NUTYVr3pNXpKSfbZ7v6NT"`
+![]https://github.com/user-attachments/assets/bf5b5261-3124-4c96-be86-30b2ae647e84)
 
 返回到`Serv00Keep`的设置, 找到`变量和机密`
 
@@ -461,17 +459,17 @@ function delay(ms) {
 按照`Json`格式编辑好自己的 serv00 账号和密码, 填入`ACCOUNTS_JSON`值.
 按照`Json`格式编辑好自己的 telegram bot token, 填入`TELEGRAM_JSON`值.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmWrhPXgkyqwjRSPE3EbT18eCq8XtLYUPL1JaPc9bQbPw2"`
+![]https://github.com/user-attachments/assets/8069f3fa-4b3b-431d-b110-5f95ac5ad487)
 
 ### 添加触发事件
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmPmUCuANQN2UP9jKodZwiVN5xLWLNg315q8dqZdQsXuch"`
+![]https://github.com/user-attachments/assets/9d41dbfd-cf04-493a-87c9-cf94d121f309)
 
 ## 手动部署
 
 机密和触发事件填写完成之后, 我们手动部署一次.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmZvTJW7bMwv5jWK7H4sJG1GMvqBwmAiLzdhehTgLpdyao"`
+![]https://github.com/user-attachments/assets/2ed0ee89-c738-42c5-95cd-18a6430212cd)
 
 ## 手动执行验证效果
 
@@ -479,7 +477,7 @@ function delay(ms) {
 
 同时可以看到正常运行没问题, 接下来就是定时执行不用再管它了.
 
-`Gmeek-imgbox="https://i1.img2ipfs.com/ipfs/QmSZWMYTY92JjWUxipWBLb9ipAWpAayYY3Jwint8Zp8XAK"`
+![]https://github.com/user-attachments/assets/02d8b180-4891-4c71-8da2-b30570483594)
 
 # 文章引用
 
