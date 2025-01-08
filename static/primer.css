@@ -12510,7 +12510,6 @@ button {
 }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 	font-size: var(--body-font-size, 14px);
 	line-height: 1.5;
 	color: var(--fgColor-default, var(--color-fg-default));
@@ -30955,7 +30954,7 @@ html {
 	-webkit-transition: opacity 0.3s ease, visibility 0s 0.3s
 }
 
-.highlight:hover .clipboard-container {
+.snippet-clipboard-content:hover .clipboard-container {
 	opacity: 1;
 	visibility: visible;
 	pointer-events: auto;
