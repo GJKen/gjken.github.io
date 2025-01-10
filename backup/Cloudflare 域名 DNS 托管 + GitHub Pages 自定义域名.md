@@ -49,4 +49,4 @@
 
 提示`DNS check successful`代表完成, 之后就可以通过www+你的域名进行访问了.
 
-![](https://github.com/user-attachments/assets/ccc047f5-efbe-4132-b9ab-94e91980394a)
+![](https://github.com/user-attachments/assets/d7e62e5d-32b5-4acd-86dc-432a971c2218)
