@@ -10,17 +10,15 @@
 
 进入仓库并创建 Releases:
 
-![](https://github.com/user-attachments/assets/8158f40f-e239-425b-bd48-c7764204d839)
+![1](https://github.com/user-attachments/assets/d035adc5-9486-4288-9f9c-caf9163d90ba)
 
 名称建议规范一点.
 
-![](https://github.com/user-attachments/assets/75b43baa-0c2e-43c5-9cc2-52a8e848582a)
+![2](https://github.com/user-attachments/assets/6ca6a2e3-edf4-49b9-afe8-6d8b0d54a34b)
 
 # 创建标签(Tags)
 
-创建 Tags 和 Releases 步骤一样, 下图是入口.
-
-![](https://github.com/user-attachments/assets/a2ee1c1f-0031-4e12-997f-65e74a3e399b)
+创建 Tags 和 Releases 步骤一样.
 
 # 使用方法
 
@@ -29,6 +27,13 @@
 `https://cdn.jsdelivr.net/gh/[GitHub用户名]/[仓库名]@[版本号或者标签]/[文件路径]`
 
 https://cdn.jsdelivr.net/gh/gjken/gjken.github.io/static/primer.min.css
+
+| Key | Value
+| - | -
+| [GitHub 用户名] | 写你的 GitHub 用户名.
+| [仓库名]  | 写你的 GitHub 仓库名称.
+| [标签或分支] | 例如 `https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js`<br>都不写默认访问最新版本.</br>
+| [文件路径] | 写你的 GitHub 仓库文件路径.
 
 > [!Important]
 > 省略版本号, 直接访问最新的资源, 不推荐在生产环境中使用.
@@ -44,10 +49,3 @@ gcore.jsdelivr.net
 testingcf.jsdelivr.net
 test1.jsdelivr.net
 ```
-
-| Key | Value
-| - | -
-| [GitHub 用户名] | 写你的 GitHub 用户名.
-| [仓库名]  | 写你的 GitHub 仓库名称.
-| [标签或分支] | 例如 `https://cdn.jsdelivr.net/gh/jquery/jquery@3.2.1/dist/jquery.min.js`<br>都不写默认访问最新版本.</br>
-| [文件路径] | 写你的 GitHub 仓库文件路径.
