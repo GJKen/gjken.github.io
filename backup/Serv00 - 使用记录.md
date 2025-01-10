@@ -458,8 +458,8 @@ function delay(ms) {
 
 返回到`Serv00Keep`的设置, 找到`变量和机密`
 
-按照`Json`格式编辑好自己的 serv00 账号和密码, 填入`ACCOUNTS_JSON`值.
-按照`Json`格式编辑好自己的 telegram bot token, 填入`TELEGRAM_JSON`值.
+按照`Json`格式编辑好自己的 serv00 账号和密码, 创建`ACCOUNTS_JSON`变量.
+按照`Json`格式编辑好自己的 telegram bot token, 创建`TELEGRAM_JSON`变量.
 
 ![5](https://github.com/user-attachments/assets/22f0cb60-050a-4fd7-b264-08c590bc8362)
 
