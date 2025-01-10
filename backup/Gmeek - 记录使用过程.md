@@ -6,17 +6,21 @@
 
 **这里主要记录一些 js 和 CSS 的修改.记录的修改不一定准确, `Gmeek-spoilertxt="因为改动的地方太多了🥴"`.**
 
-**demo模式:** https://gjkblog.us.kg/demo
-
-**线上模式:** https://gjkblog.us.kg
-
-**调试过程只会用 demo 演示, 确定后再同步代码到线上模式.**
-
-> [!NOTE]
-> static 这个目录里的文件发生了改动, 一定要手动 Actions 之后, 再等待20多分钟(~~猜的~~)才会更新外链内容.
-
 > [!WARNING]
 > 利用 Github Page 搭建的网站内容是完全公开的, 请注意不要上传自己的隐私!!!
+
+## 博客调试
+
+**为了方便调试代码, 创建了一个名为 demo 的仓库, 调试过程只会用 demo 演示, 确定后再同步代码到线上模式.
+
+**demo模式:** https://gjken.github.io/demo
+
+**线上模式:** https://gjken.github.io
+
+**线上模式的仓库用 tag 区分代码版本, release 可有可无, 主要是用来说明版本改动(`Gmeek-spoilertxt="懒得写"`)**
+
+> [!NOTE]
+> static 这个目录里的文件发生了改动, 一定要手动 Actions 之后, 再等待20多分钟(`Gmeek-spoilertxt="测试的大概结果"`)才会更新外链内容.
 
 # Config.json 小妙用
 
@@ -30,25 +34,21 @@
 
 ## subTitle - js插入
 
+`subTitle`字段可用 js 插入 html 实现修改文字.
+
 代码:
 
 ```json
 "subTitle":"<script>document.getElementById('content').innerHTML = `<div style='text-align: center;'><p>CV工程师,</p><p>一个又菜又爱玩, 喜欢瞎折腾的流浪者.</p></div>`;</script>",
 ```
 
-效果图:
-
-![](https://github.com/user-attachments/assets/704ba114-c255-469e-ac71-61ccdffac962)
-
-从图中可以看到, `subTitle`字段可用 js 插入 html 实现修改文字.
-
 ## subTitle - 隐藏
 
 `"subTitle":" ",`
 
-效果图:
+- 效果图:
 
-![](https://github.com/user-attachments/assets/92e2da59-1bb4-4c4c-a2ae-b58105ecc230)
+![](https://github.com/user-attachments/assets/297cd65b-95cb-4931-8846-53f777923e51)
 
 可以用空白字符的方式, 隐藏`subTitle`这个必须字段, 无需使用 js 隐藏.
 
@@ -118,10 +118,6 @@ markdown 输入:
 > 修改-动画和样式.
 > 修改-滚动页面自动显示&隐藏返回顶部按钮.
 
-图示:
-
-![](https://github.com/user-attachments/assets/2d12652a-ee57-44a7-bd41-17f618a0785b)
-
 可以直接引用.
 
 ## 文章增加目录列表(集成到header)
@@ -133,11 +129,9 @@ markdown 输入:
 > 修改-当滚动页面使`#functionBtn`按钮不可见时, 使其悬浮在顶部.
 > 修改-文章目录增加顶部和底部跳转按钮.
 
-图示:
+- 图示:
 
-![](https://github.com/user-attachments/assets/cb85ad0f-0e19-42e0-bb3e-45399a5ca7f7)
-
-![](https://github.com/user-attachments/assets/3f84c22d-43cc-489f-9df0-d6ffa24feb42)
+![](https://github.com/user-attachments/assets/7b02e4e8-7502-44e8-a48c-2a45bb0d5c2f)
 
 ## Fancybox.js - 图片浏览器
 
@@ -155,7 +149,7 @@ markdown 输入:
 
 CSS写入到了👉[文章自定义 js 代码](#articlejs.js---文章自定义-js-代码)
 
-内容如下:
+- 内容如下:
 
 意思是页面加载完成再加载 CSS, 同时增加 fancybox 必要的绑定函数.
 
@@ -195,9 +189,9 @@ document.addEventListener('DOMContentLoaded', () => {
 `Gmeek-imgbox="https://i0.img2ipfs.com/ipfs/QmNiH2pdrA9Hb61EXgYbKtEssBAGemEjTQRBZbgutUCNx2"`
 ```
 
-通过 Actions 转换后实际效果如下, html 里面图片标签会增加 fancybox 所需的`data-fancybox="gallery"`属性.
+通过 Actions 转换后实际效果如下, html 的 img 标签会增加 fancybox 所需的`data-fancybox="gallery"`属性.
 
-![](https://github.com/user-attachments/assets/90439bbe-7ced-409b-a4c7-62f859c842ab)
+![](https://github.com/user-attachments/assets/372c5d55-5aae-4f2e-a900-7f93d94e21bd)
 
 ## 图片懒加载
 
@@ -858,6 +852,7 @@ html {
 > [!NOTE]
 > 优化 light & dark 主题下的背景色.
 > 增加 hover 动画.
+> img 标签增加`display: block;`, 防止 Actions 之后显示错误.
 
 <details><summary>修改前</summary>
 
@@ -882,6 +877,7 @@ html {
     -webkit-clip-path: inset(0);
 }
 .markdown-body img {
+	display: block;
     max-width: 100%;
     box-sizing: content-box;
 	/* 增加 */
@@ -992,7 +988,7 @@ html {
 ## 文章 diff 代码块样式
 
 > [!NOTE]
-> 默认的效果可以双击复制到+和-号, 通过 CSS 控制使其无法被选中复制.
+> 因默认的效果可以双击复制到+和-号, 现通过 CSS 控制使其无法被选中复制.
 > 直接增加下面代码.
 
 <details><summary>CSS Code</summary>
@@ -1017,9 +1013,9 @@ html {
 
 </details>
 
-效果图:
+- 效果图:
 
-![](https://github.com/user-attachments/assets/f3eb7940-ca2b-4952-8fb4-e05a7acc84bd)
+![](https://github.com/user-attachments/assets/7ee3a3f5-0074-4bf0-9e22-4be7fccd69e5)
 
 ## 文章一键复制代码按钮样式
 
@@ -1039,7 +1035,7 @@ html {
     -webkit-transition: opacity 0.3s ease, visibility 0s 0.3s
 }
 
-.highlight:hover .clipboard-container {
+.snippet-clipboard-content:hover .clipboard-container {
     opacity: 1;
     visibility: visible;
     pointer-events: auto;
@@ -1138,9 +1134,9 @@ a {
 
 </details>
 
-效果图:
+- 效果图:
 
-![](https://github.com/user-attachments/assets/73cdc397-e4c8-45c8-8ecf-02f32af9fd63)
+![](https://github.com/user-attachments/assets/f921eaa2-cfc3-4c3a-bb96-3d58a519a7dc)
 
 # 通过 Gmeek 仓库美化博客
 
@@ -1150,15 +1146,15 @@ a {
 
 仓库地址👉 https://github.com/Meekdai/Gmeek
 
-![](https://github.com/user-attachments/assets/8794d347-3524-4709-a6f1-fd74c607fc22)
+![](https://github.com/user-attachments/assets/363f7bc7-34e0-4089-ab15-0a05e82a5a1c)
 
 fork 之后, 转到搭建博客的 github 源码,
 
 打开`.github/workflows/Gmeek.yml`文件, 修改构建博客仓库的地址为你自己的仓库地址
 
-![](https://github.com/user-attachments/assets/20d1b3ac-c0fc-44ad-a937-3828b6875a8f)
+![](https://github.com/user-attachments/assets/206e274c-860f-4292-b710-bf904688cc86)
 
-打开`config.json`文件, 修改右边字段值为👉main, `"GMEEK_VERSION":"main"`
+打开`config.json`文件, 把`GMEEK_VERSION`的修改值为👉`main`
 
 > [!NOTE]
 > 如果值是`last`的话, Actions 会失败, 因为默认值`last`是靠模板仓库的 tag 来构建的, 改成 main 就不会构建失败.
@@ -1184,13 +1180,13 @@ fork 之后, 转到搭建博客的 github 源码,
 
 下图文字直接修改即可, 不同语言的按需修改.
 
-![](https://github.com/user-attachments/assets/c0f4bca8-174d-4044-a654-12e6322cca9b)
+![](https://github.com/user-attachments/assets/32be66c5-d8f2-4476-a46c-074f49162868)
 
 ## 修改默认 primer.css 链接
 
 打开`Gmeek.py`
 
-![](https://github.com/user-attachments/assets/fd72d93f-5015-44d9-ac79-58dff7e3c116)
+![](https://github.com/user-attachments/assets/539ccdbe-68e4-4d14-b293-171a4b524bef)
 
 这里我直接写改成我存放的链接, 并使用 tag 控制版本.
 
@@ -1205,8 +1201,10 @@ fork 之后, 转到搭建博客的 github 源码,
 
 > 文章头部背景色.
 > 打字效果动画.
-> 动画(已引用的地方:`#header`打字机光标, `body``.title-left a``functionBtn`向上渐显动画).
+> 动画(已引用的地方:`#header`打字机光标, `body``#content``functionBtn``.tagTitle``.title-left a``.subnav-search`向上渐显动画).
 > 分离图标的`#functionBtn`样式.
+
+<details><summary>CSS Code</summary>
 
 ```CSS
 :root{--functionBtnFlex-bgColor:#ffffff61;}
@@ -1238,27 +1236,19 @@ fork 之后, 转到搭建博客的 github 源码,
 #functionBtn a{padding:14px 16px;}
 #functionBtn.Btn-flex{position:fixed;margin:0;padding:20px 0;top:-100px;left:0;width:100%;min-width:500px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;}
 
-body,#content{-webkit-animation:slide-fade-in 1.2s ease;animation:slide-fade-in 1.2s ease}
-#functionBtn a,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
-.title-left img{animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);-webkit-animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);}
+body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
 ```
+
+</details>
 
 2. **定位`#header`, 修改样式.**
 
-> 使用类名区分首页和文章页.
+> 去除下划线, 优化布局.
 
 ```Diff
 +#header .homepage-header{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;}
 👆
 -#header{display:flex;padding-bottom:8px;border-bottom: 1px solid var(--borderColor-muted, var(--color-border-muted));margin-bottom: 16px;}
-```
-
-3. **头部图标样式.**
-
-> 增加 CSS, `fadeIn`动画已在上文第1步骤添加过.
-
-```CSS
-.title-right{display:flex;gap:25px;animation:fadeIn 1.2s ease-in 0s forwards;}
 ```
 
 ### post.html 文件
@@ -1294,8 +1284,8 @@ body,#content{-webkit-animation:slide-fade-in 1.2s ease;animation:slide-fade-in 
 5. **分离 header 文字以及图标**
 
 > 需要把`.title-right`这个类名全部重命名为`#functionBtn`
-> 增加搜索页按钮
-> 增加文章目录按钮
+> 增加搜索页按钮.
+> 增加文章目录按钮.
 
 <details><summary>修改前</summary>
 
@@ -1441,7 +1431,7 @@ document.addEventListener('wheel', e => handleScroll(e.deltaY));
 > [!Important]
 > plist 这个模板文件里增加的代码可以应用到博客首页.
 
-1. **增加样式.**
+1. **增加样式**
 
 ```CSS
 .title-left{display:flex;flex-direction:column;align-items:center;gap:20px;}
@@ -1449,13 +1439,13 @@ document.addEventListener('wheel', e => handleScroll(e.deltaY));
 
 2. **定位样式`.title-left`, 直接删除相关的所有样式**
 
-3. **定位`.avatar:hover`, 修改样式.**
+3. **定位`.avatar:hover`, 修改样式**
 
 ```CSS
 .avatar:hover{transform:scale(1.5) rotate(720deg);box-shadow:0 0 10px #2dfaffbd;}
 ```
 
-4. **分离#header的文字以及图标.**
+4. **分离#header的文字以及图标**
 
 <details><summary>修改前</summary>
 
@@ -1668,9 +1658,9 @@ document.addEventListener('wheel', e => handleScroll(e.deltaY));
 
 定位`line-height:1;`, 直接删除这个属性.
 
-**效果图:**
+- 效果图:
 
-![](https://github.com/user-attachments/assets/db205027-0615-4456-bca3-b33856372283)
+![](https://github.com/user-attachments/assets/73b52317-f74e-4cbd-b827-25500588d6ac)
 
 ## 优化任务列表样式
 
@@ -1750,7 +1740,7 @@ document.addEventListener('wheel', e => handleScroll(e.deltaY));
 
 Github 由于安全考虑, 是不允许使用 iframe 等标签的, 而且在 issues 插入的图片也会自动转换为 Github 的地址, 为了文章的多样性, 在 Gmeek 的 v2.19 版本中添加了支持 html 标签的功能.
 
-> Gmeek 的默认功能, 可使用这个匹配规则转换不同的html效果, 祥看 👉 [Gmeek进阶](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-wen-zhang-cha-ru-html-biao-qian.html)
+> Gmeek 的默认功能, 可使用这个匹配规则转换不同的 html 效果, 详看 👉 [Gmeek进阶](https://blog.meekdai.com/post/%E3%80%90Gmeek-jin-jie-%E3%80%91-wen-zhang-cha-ru-html-biao-qian.html)
 
 > [!Important]
 > 如果在文章中含有代码块标签并且内容为 Gmeek-html, Action 那边会进行转换导致显示错误, 详情看[#201](https://github.com/Meekdai/Gmeek/issues/201)
@@ -1776,7 +1766,7 @@ Github 由于安全考虑, 是不允许使用 iframe 等标签的, 而且在 iss
 
 # 增加图片转换, 并适配图片懒加载
 
-打开`Gmeek.py`, 定位字符串`gmeek-html`
+打开`Gmeek.py`, 定位字符串`Gmeek-html`
 
 在附近任意行增加代码:
 
@@ -1794,11 +1784,13 @@ Github 由于安全考虑, 是不允许使用 iframe 等标签的, 而且在 iss
 
 在 GitHub markdown 里上传图片, 粘贴&拖拽都行,
 
-然后通过 Actions 转换后实际效果如下, html 里面图片标签会增加 fancybox 所需的`data-fancybox="gallery"`属性.
+然后通过 Actions 转换后实际效果如下, html 里面 img 标签会增加 fancybox 所需的`data-fancybox="gallery"`属性.
 
-![](https://github.com/user-attachments/assets/1800f94a-8214-4cfd-ab38-dd26f020d981)
+![](https://github.com/user-attachments/assets/e2ed0b88-719e-49b4-b8bf-90686e0e29c8)
 
 这样优化后可以在 Github issue 的 Preview 里面直接预览图片, 同时还能防备图床问题导致的图片丢失(`Gmeek-spoilertxt="Github, 稳!"`)
+
+唯一缺点就是当 issues 删除后, 图片也会跟着消失, 无法再被外部引用, 所以删除仓库以及 issues 的时候一定要确保图片先备份哦~
 
 # 添加 Gmeek-spoilertxt - 文字防剧透模糊效果
 
@@ -1895,9 +1887,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## 更改发布时间
 
-如需修改发布时间, 可以在 issues 文章最后一行添加如下代码, 里面的时间是采用时间戳的形式, 可以用这个网站👉[Link](https://tool.lu/timestamp) 转换.
+如需修改发布时间, 可以在 issues 文章最后一行添加如下代码, 里面的时间是采用时间戳的形式, 可以用这个👉[网站](https://tool.lu/timestamp) 转换.
 
+```html
 <!-- ##{"timestamp":1490764800}## -->
+```
 
 # Issues Label 备份
 
@@ -1905,7 +1899,7 @@ document.addEventListener('DOMContentLoaded', () => {
 |-|-|-
 | 翻墙 | #cb7b58 | ![](https://img.shields.io/static/v1?label=&message=翻墙&color=cb7b58)
 | 软件 | #5da167 | ![](https://img.shields.io/static/v1?label=&message=软件&color=5da167)
-| 网站 | #218155 | ![](https://img.shields.io/static/v1?label=&message=网站&color=218155)
+| 网站 | #7057ff | ![](https://img.shields.io/static/v1?label=&message=网站&color=218155)
 | 日常 | #008672 | ![](https://img.shields.io/static/v1?label=&message=日常&color=008672)
 | 教程 | #0075ca | ![](https://img.shields.io/static/v1?label=&message=教程&color=0075ca)
 | 图片处理 | #4c6cc5 | ![](https://img.shields.io/static/v1?label=&message=图片处理&color=4c6cc5)
