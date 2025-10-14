@@ -11,7 +11,7 @@
 
 ## 博客调试
 
-**为了方便调试代码, 创建了一个名为 demo 的仓库, 调试过程只会用 demo 演示, 确定后再同步代码到线上模式.
+**为了方便调试代码, 创建了一个名为 demo 的仓库, 调试过程只会用 demo 演示, 确定后再同步代码到线上模式.**
 
 **demo模式:** https://gjken.github.io/demo
 
@@ -1207,8 +1207,8 @@ fork 之后, 转到搭建博客的 github 源码,
 <details><summary>CSS Code</summary>
 
 ```CSS
-:root{--functionBtnFlex-bgColor:#ffffff61;}
-[data-color-mode=light][data-light-theme=dark],[data-color-mode=light][data-light-theme=dark]::selection,[data-color-mode=dark][data-dark-theme=dark],[data-color-mode=dark][data-dark-theme=dark]::selection{--functionBtnFlex-bgColor:#ffffff00;}
+:root{--functionBtnFlex-bgColor:#ffffff61;--tooglebtn-bgColor:#c0e4ff9c}
+[data-color-mode=light][data-light-theme=dark],[data-color-mode=light][data-light-theme=dark]::selection,[data-color-mode=dark][data-dark-theme=dark],[data-color-mode=dark][data-dark-theme=dark]::selection{--functionBtnFlex-bgColor:#ffffff00;--tooglebtn-bgColor:#7dc2ff7a}
 
 @keyframes fadeIn{0%{opacity:0}100%{opacity:1}}@-webkit-keyframes fadeIn{0%{opacity:0}100%{opacity:1}}
 
@@ -1234,7 +1234,7 @@ fork 之后, 转到搭建博客的 github 源码,
 
 #functionBtn{display:flex;justify-content:center;margin:20px 0;gap:20px;transition: transform 0.3s ease-in-out;}
 #functionBtn a{padding:14px 16px;}
-#functionBtn.Btn-flex{position:fixed;margin:0;padding:20px 0;top:-100px;left:0;width:100%;min-width:500px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;}
+#functionBtn.Btn-flex{position:fixed;margin:0;padding:8px 0;top:-64px;left:0;width:100%;min-width:500px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;animation:fadeIn.2s ease-in 0s forwards;transition:top 0.3s ease-in-out}
 
 body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
 ```
@@ -1362,7 +1362,18 @@ document.getElementById("ArticleTOC").setAttribute("d","M1 2.75A.75.75 0 0 1 1.7
 document.getElementById("pathSearch").setAttribute("d","M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z");
 ```
 
-6. **添加自定义 JS 代码.**
+6. **#toogleBtn 按钮样式**
+
+> 点击展开&关闭悬浮导航.
+
+```CSS
+#toogleBtn{position:fixed;top:51px;right:6%;display:none;}
+#toogleBtn.active,#toogleBtn path{display:flex;padding:6px 7px;fill:var(--title-right-svgColor);cursor:pointer;transition:transform 0.3s ease-in-out;background:var(--tooglebtn-bgColor)}
+#toogleBtn.active:hover svg path{fill:var(--title-right-svgHovercolor);}
+#functionBtn div:first-of-type{display:flex;gap:20px}
+```
+
+7. **添加自定义 JS 代码.**
 
 > 添加打字效果.
 > 添加滚动切换显示顶部按钮导航.
@@ -1370,7 +1381,8 @@ document.getElementById("pathSearch").setAttribute("d","M15.7 13.3l-3.81-3.83A5.
 定位`<script>`标签, 在里面增加 JS 代码:
 
 > [!NOTE]
-> `document.addEventListener("DOMContentLoaded", () => {`这个监听不止可写当前功能, 还可写其它功能的代码进去.
+> `document.addEventListener('DOMContentLoaded', () => {`
+这段监听函数还可另增加额外的功能.
 > 实际应用场景我把这块的代码都压缩合并了.
 
 <details><summary>JavaScript</summary>
@@ -1393,34 +1405,30 @@ const writeTimer = setInterval(() => {
 
 postTitle.classList.add('no-blink');
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 创建检查按钮, 插入到指定id #functionBtn 的后面
-    const checkBtn = document.createElement('div');
-    checkBtn.id = 'checkBtn';
-    const functionBtn = document.getElementById('functionBtn');
-    functionBtn.insertAdjacentElement('afterend', checkBtn);
+document.addEventListener("DOMContentLoaded", () => {
+	// 创建检查按钮, 插入到指定id #functionBtn 的后面
+	const checkBtn = document.createElement('div');
+	checkBtn.id = 'checkBtn';
+	const toogleBtn = document.getElementById('toogleBtn');
+	const functionBtn = document.getElementById('functionBtn');
+	functionBtn.insertAdjacentElement('afterend', checkBtn);
 
-    // 用 IntersectionObserver 观察 checkBtn 这个div的可见性
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            const isIntersecting = entry.isIntersecting;
-            functionBtn.classList.toggle('Btn-flex', !isIntersecting);
-            functionBtn.style.top = isIntersecting ? '0' : '-100px';
-        });
-    }, { rootMargin: '300px 0px 0px 0px', threshold: 0 });
-    observer.observe(checkBtn);
+	// 用 IntersectionObserver 观察 checkBtn 这个div的可见性
+	const observer = new IntersectionObserver(entries => {
+		entries.forEach(entry => {
+			const isIntersecting = entry.isIntersecting;
+			toogleBtn.classList.toggle('active', !isIntersecting);
+			functionBtn.classList.toggle('Btn-flex', !isIntersecting);
+			functionBtn.classList.toggle('btn-fadeout', !isIntersecting);
+		});
+	}, { rootMargin: '300px 0px 0px 0px', threshold: 0 });
+	observer.observe(checkBtn);
 
-    let startY = 0;
-
-    // 通用滚动处理函数
-    const handleScroll = deltaY => {
-        functionBtn.style.top = deltaY > 0 ? '-100px' : '0';
-    };
-
-// 监听触摸和滚轮事件
-document.addEventListener('touchstart', e => startY = e.touches[0].clientY);
-document.addEventListener('touchmove', e => handleScroll(e.touches[0].clientY - startY));
-document.addEventListener('wheel', e => handleScroll(e.deltaY));
+	// 为 toogleBtn 添加点击事件修改悬浮样式
+	toogleBtn.addEventListener('click', () => {
+		functionBtn.style.top = functionBtn.style.top === '0px' ? '-64px' : '0';
+		toogleBtn.style.transform = toogleBtn.style.transform === 'rotate(180deg)' ? 'rotate(0deg)' : 'rotate(180deg)';
+	});
 });
 ```
 
