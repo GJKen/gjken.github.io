@@ -13,66 +13,82 @@
 <meta name="description" content="> [!NOTE]
 > GPT帮写最方便.
 
-# 匹配关键字并删除指定行
+## 匹配关键字并删除指定行
 
 `^.*关键字.*\r?\n`
 
-# 匹配8位任意字母和数字, 并用方括号包裹
+## 匹配8位任意字母和数字, 并用方括号包裹
 
 > 用于动漫bt重命名
 
 `\[[A-Za-z0-9]{8}\]`
 
-# 查找换行并增加空行, 增加空行同时填写内容, 最后再换行
+## 查找换行并增加空行, 增加空行同时填写内容, 最后再换行
 
 > [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2) 歌单转 [poweramp](https://powerampapp.com/zh_tw/) 歌单编写时需要用到
 
 查找👉`\r\n`
 替换👉`\r\n填写的内容\r\n`
 
-# 匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾
+## 匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾
 
 > ipfs 超链接重命名
 
 `\?file.*\.{jpg|png}$`
 
-# 匹配 /* */ 中间包含任意字符串
+### 匹配 /* */ 中间包含任意字符串
 
 > css 注释块
 
-`\/\*.*?\*\/`。">
+`\/\*.*?\*\/`
+
+## 匹配 ![]( , 其中方括号内容为任意字符串
+
+> Github Issues 评论上传图片会给图片增加 alt 值 例如 `![alt值](https://example.jpg)`, 使用正则匹配然后替换成空内容👉`![](`
+
+查找👉`!\[.*\]\(`
+替换👉`![]\(`
+。">
 <meta property="og:title" content="正则表达式 - 使用记录">
 <meta property="og:description" content="> [!NOTE]
 > GPT帮写最方便.
 
-# 匹配关键字并删除指定行
+## 匹配关键字并删除指定行
 
 `^.*关键字.*\r?\n`
 
-# 匹配8位任意字母和数字, 并用方括号包裹
+## 匹配8位任意字母和数字, 并用方括号包裹
 
 > 用于动漫bt重命名
 
 `\[[A-Za-z0-9]{8}\]`
 
-# 查找换行并增加空行, 增加空行同时填写内容, 最后再换行
+## 查找换行并增加空行, 增加空行同时填写内容, 最后再换行
 
 > [MusicPlayer2](https://github.com/zhongyang219/MusicPlayer2) 歌单转 [poweramp](https://powerampapp.com/zh_tw/) 歌单编写时需要用到
 
 查找👉`\r\n`
 替换👉`\r\n填写的内容\r\n`
 
-# 匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾
+## 匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾
 
 > ipfs 超链接重命名
 
 `\?file.*\.{jpg|png}$`
 
-# 匹配 /* */ 中间包含任意字符串
+### 匹配 /* */ 中间包含任意字符串
 
 > css 注释块
 
-`\/\*.*?\*\/`。">
+`\/\*.*?\*\/`
+
+## 匹配 ![]( , 其中方括号内容为任意字符串
+
+> Github Issues 评论上传图片会给图片增加 alt 值 例如 `![alt值](https://example.jpg)`, 使用正则匹配然后替换成空内容👉`![](`
+
+查找👉`!\[.*\]\(`
+替换👉`![]\(`
+。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://gjken.github.io/post/7.html">
 <meta property="og:image" content="https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp">
@@ -159,29 +175,35 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
     <div id="content">
 <div class="markdown-body" id="postBody"><div class="markdown-alert markdown-alert-note"><p class="markdown-alert-title"><svg class="octicon octicon-info mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</p><p>GPT帮写最方便.</p>
 </div>
-<h1>匹配关键字并删除指定行</h1>
+<h2>匹配关键字并删除指定行</h2>
 <p><code class="notranslate">^.*关键字.*\r?\n</code></p>
-<h1>匹配8位任意字母和数字, 并用方括号包裹</h1>
+<h2>匹配8位任意字母和数字, 并用方括号包裹</h2>
 <blockquote>
 <p>用于动漫bt重命名</p>
 </blockquote>
 <p><code class="notranslate">\[[A-Za-z0-9]{8}\]</code></p>
-<h1>查找换行并增加空行, 增加空行同时填写内容, 最后再换行</h1>
+<h2>查找换行并增加空行, 增加空行同时填写内容, 最后再换行</h2>
 <blockquote>
 <p><a href="https://github.com/zhongyang219/MusicPlayer2">MusicPlayer2</a> 歌单转 <a href="https://powerampapp.com/zh_tw/" rel="nofollow">poweramp</a> 歌单编写时需要用到</p>
 </blockquote>
 <p>查找👉<code class="notranslate">\r\n</code><br>
 替换👉<code class="notranslate">\r\n填写的内容\r\n</code></p>
-<h1>匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾</h1>
+<h2>匹配以 ?file 开头, 并且之间有任意字符, 最后以 jpg 或 png 结尾</h2>
 <blockquote>
 <p>ipfs 超链接重命名</p>
 </blockquote>
 <p><code class="notranslate">\?file.*\.{jpg|png}$</code></p>
-<h1>匹配 /* */ 中间包含任意字符串</h1>
+<h3>匹配 /* */ 中间包含任意字符串</h3>
 <blockquote>
 <p>css 注释块</p>
 </blockquote>
-<p><code class="notranslate">\/\*.*?\*\/</code></p></div>
+<p><code class="notranslate">\/\*.*?\*\/</code></p>
+<h2>匹配 ![]( , 其中方括号内容为任意字符串</h2>
+<blockquote>
+<p>Github Issues 评论上传图片会给图片增加 alt 值 例如 <code class="notranslate">![alt值](https://example.jpg)</code>, 使用正则匹配然后替换成空内容👉<code class="notranslate">![](</code></p>
+</blockquote>
+<p>查找👉<code class="notranslate">!\[.*\]\(</code><br>
+替换👉<code class="notranslate">![]\(</code></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">🥰转载请注明,谢谢!🥰</div>
 
 <button class="btn btn-block" type="button" id="cmButton">评论</button>
