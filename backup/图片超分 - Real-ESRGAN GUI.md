@@ -8,4 +8,4 @@ https://github.com/TransparentLC/realesrgan-gui
 
 # 图示
 
-![](https://github.com/user-attachments/assets/ac50157c-33ce-40cb-8a65-97a0086797e9)
+![](https://github.com/user-attachments/assets/c0cefbf9-bd73-4328-943f-01d2b0050ee3)
