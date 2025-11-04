@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Tue, 04 Nov 2025 12:31:53 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>Brofroce Mod使用教程</title><link>https://gjken.github.io/post/14.html</link><description># 前言
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Tue, 04 Nov 2025 12:34:57 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>Brofroce Mod使用教程</title><link>https://gjken.github.io/post/14.html</link><description># 前言
 **此教程主要记录 borforce 的 mod 安装以及自用的 mod**
 &gt; 引用来源: [Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=2434812447)
 
@@ -244,7 +244,7 @@ https://github.com/GJKen/clash-Rules/blob/main/Src/Mihomo%20%E8%A6%86%E5%86%99%E
 
 # 前言
 
-最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败, 如下图.
+最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败.
 
 卡顿文件👉`https://static.cloudflareinsights.com/beacon.min.js`
 
