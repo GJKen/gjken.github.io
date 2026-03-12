@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Tue, 04 Nov 2025 14:22:35 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>[转载留档] BD压制组鉴别心得</title><link>https://gjken.github.io/post/15.html</link><description>**U2分享園@動漫花園 论坛--&gt;会员交流区--&gt;日本动画压制组异闻录(2020.05.04 更新，增补内容，迫害群友)**
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>GJKen</title><link>https://gjken.github.io</link><description> </description><copyright>GJKen</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp</url><title>avatar</title><link>https://gjken.github.io</link></image><lastBuildDate>Thu, 12 Mar 2026 19:33:20 +0000</lastBuildDate><managingEditor>GJKen</managingEditor><ttl>60</ttl><webMaster>GJKen</webMaster><item><title>[转载留档] BD压制组鉴别心得</title><link>https://gjken.github.io/post/15.html</link><description>**U2分享園@動漫花園 论坛--&gt;会员交流区--&gt;日本动画压制组异闻录(2020.05.04 更新，增补内容，迫害群友)**
 
 &gt; 来源👉https://u2.dmhy.org/forums.php?action=viewtopic&amp;topicid=11263&amp;authorid=42308
 https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482
@@ -14,18 +14,21 @@ https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482
 https://www.nexusmods.com/games/broforce/mods
 
 # 安装
-首先下载下面链接的这3个文件:
-1. [Utility Mod](https://www.nexusmods.com/broforce/mods/2)
-2. [BroMaker](https://www.nexusmods.com/broforce/mods/13)
-3. [RocketLib](https://www.nexusmods.com/broforce/mods/9)
+首先下载下面链接的这4个文件:
+1. [UnityModManager](https://www.nexusmods.com/site/mods/21)
+2. [Utility Mod](https://www.nexusmods.com/broforce/mods/2)
+3. [BroMaker](https://www.nexusmods.com/broforce/mods/13)
+4. [RocketLib](https://www.nexusmods.com/broforce/mods/9)
 
-选择免费的慢速下载就行.
-![](https://github.com/user-attachments/assets/92ea5ba2-7b44-4b75-8143-c5860cb16ac3)
+## 安装UnityModManager
 
-## 安装Utility Mod
-Utility Mod下载完成后可随意放在自己喜欢的地方并运行它.
+下载需要注册账号, 然后选择免费的慢速下载就行.
 
-接着按图中所示下拉找到 Broforce,
+![](https://github.com/user-attachments/assets/52866ed7-65ec-43c8-b64e-9e27c2aa6113)
+
+UnityModManager 下载完成后可随意放在自己喜欢的地方并运行它.
+
+接着按图中所示下拉找到 Broforce, 没问题后然后点击 install.
 &lt;img width='367' height='625' alt='Image' src='https://github.com/user-attachments/assets/7344509d-ab8a-4983-b103-b775c1d3e97a' /&gt;
 
 没记错的话它会自动识别 Steam 已安装的 Broforce 文件路径.
