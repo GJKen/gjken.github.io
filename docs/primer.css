@@ -27322,7 +27322,7 @@ a.branch-name .octicon {
 .markdown-body h4,
 .markdown-body h5,
 .markdown-body h6 {
-	padding: .22em 0;
+	padding: .22em .44em;
 	margin-top: 24px;
 	margin-bottom: 16px;
 	font-weight: var(--base-text-weight-semibold, 600);
@@ -27386,7 +27386,7 @@ a.branch-name .octicon {
 .markdown-body h2 {
 	padding-bottom: .3em;
 	font-size: 1.5em;
-	box-shadow: rgb(41, 150, 186) 0px 9px 18px -15px;
+	box-shadow:rgb(41,150,186) 0px 9px 18px -10px;
 	display: inline-block;
 	border-radius: 6px;
 }
