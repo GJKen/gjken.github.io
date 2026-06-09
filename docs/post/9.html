@@ -10,75 +10,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Cloudflare Web Analytics CDN 国内加载缓慢的解决方法.
-
-# 前言
-
-最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败.
-
-卡顿文件👉`https://static.cloudflareinsights.com/beacon.min.js`
-
-随后在网上找了点教程关闭它.
-
-> 引用来源 [ruimian](https://www.ruimian.com/cloudflare-web-analytics-slow-loading)
-
-## Cloudflare 官方解释:
-
-> [!TIP]
-> Cloudflare Web Analytics功能, 为您的网站提供免费的隐私优先分析, 无需更改 DNS 或使用 Cloudflare 的代理. Cloudflare Web Analytics 可帮助您了解网站访问者体验到的网页性能. 启用 Cloudflare Web Analytics 所需的只是您的页面上的 Cloudflare 帐户和 JavaScript 代码片段, 即可开始获取有关页面浏览量和访问者的信息. JavaScript 代码片段(也称为信标)使用 Performance API 收集指标, 该 API 可在所有主流 Web 浏览器中使用.Web Analytics 支持自适应比特率 (ABR).
-> 
-> Cloudflare 的服务器将根据数据大小、日期范围、网络连接和其他因素为每个图表或表格选择最佳分辨率.有关更多信息, 请参阅解释 Cloudflare 的 ABR Analytics.
-> 
-> Web Analytics 显示的数据为真实用户监控 (RUM), 更多信息请参考真实用户监控.
-> 
-> Cloudflare Web Analytics 不会收集或使用您的访客的个人数据.
-
-# 关闭步骤
-
-1. 选择需要管理的站点.
-
-![](https://github.com/user-attachments/assets/2eaa849a-f41c-4323-9f7e-dbbfa84d6a1d)
-
-2. 展开高级选项后点击删除即可.
-
-![](https://github.com/user-attachments/assets/4d1540a0-512d-4917-a0d5-a1b2454de6e5)
-
-设置完成后等 5 分钟后强制刷新网站, 就没有这个 js 的加载了.。">
+<meta name="description" content="Cloudflare Web Analytics CDN 国内加载缓慢的解决方法. 前言 最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败. 卡顿文件👉 https://static.cloudflareinsights.com/beacon.m...">
 <meta property="og:title" content="Cloudflare Web Analytics 的 beacon.min.js 加载缓慢, 记录它的关闭方法">
-<meta property="og:description" content="Cloudflare Web Analytics CDN 国内加载缓慢的解决方法.
-
-# 前言
-
-最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败.
-
-卡顿文件👉`https://static.cloudflareinsights.com/beacon.min.js`
-
-随后在网上找了点教程关闭它.
-
-> 引用来源 [ruimian](https://www.ruimian.com/cloudflare-web-analytics-slow-loading)
-
-## Cloudflare 官方解释:
-
-> [!TIP]
-> Cloudflare Web Analytics功能, 为您的网站提供免费的隐私优先分析, 无需更改 DNS 或使用 Cloudflare 的代理. Cloudflare Web Analytics 可帮助您了解网站访问者体验到的网页性能. 启用 Cloudflare Web Analytics 所需的只是您的页面上的 Cloudflare 帐户和 JavaScript 代码片段, 即可开始获取有关页面浏览量和访问者的信息. JavaScript 代码片段(也称为信标)使用 Performance API 收集指标, 该 API 可在所有主流 Web 浏览器中使用.Web Analytics 支持自适应比特率 (ABR).
-> 
-> Cloudflare 的服务器将根据数据大小、日期范围、网络连接和其他因素为每个图表或表格选择最佳分辨率.有关更多信息, 请参阅解释 Cloudflare 的 ABR Analytics.
-> 
-> Web Analytics 显示的数据为真实用户监控 (RUM), 更多信息请参考真实用户监控.
-> 
-> Cloudflare Web Analytics 不会收集或使用您的访客的个人数据.
-
-# 关闭步骤
-
-1. 选择需要管理的站点.
-
-![](https://github.com/user-attachments/assets/2eaa849a-f41c-4323-9f7e-dbbfa84d6a1d)
-
-2. 展开高级选项后点击删除即可.
-
-![](https://github.com/user-attachments/assets/4d1540a0-512d-4917-a0d5-a1b2454de6e5)
-
-设置完成后等 5 分钟后强制刷新网站, 就没有这个 js 的加载了.。">
+<meta property="og:description" content="Cloudflare Web Analytics CDN 国内加载缓慢的解决方法. 前言 最近在访问博客的时候发现个别js加载失败, 检查发现原来是 CloudFlare 的 beacon.min.js 加载失败. 卡顿文件👉 https://static.cloudflareinsights.com/beacon.m...">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://gjken.github.io/post/9.html">
 <meta property="og:image" content="https://s2.loli.net/2024/11/13/DNHrdGTfphzQOok.webp">
@@ -181,11 +115,13 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 <ol>
 <li>选择需要管理的站点.</li>
 </ol>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/2eaa849a-f41c-4323-9f7e-dbbfa84d6a1d"><img src="https://github.com/user-attachments/assets/2eaa849a-f41c-4323-9f7e-dbbfa84d6a1d" alt="" style="max-width: 100%;"></a></p>
+<p><div class="ImgLazyLoad-circle"></div>
+<img data-fancybox="gallery" img-src="https://github.com/user-attachments/assets/2eaa849a-f41c-4323-9f7e-dbbfa84d6a1d"></p>
 <ol start="2">
 <li>展开高级选项后点击删除即可.</li>
 </ol>
-<p><a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/4d1540a0-512d-4917-a0d5-a1b2454de6e5"><img src="https://github.com/user-attachments/assets/4d1540a0-512d-4917-a0d5-a1b2454de6e5" alt="" style="max-width: 100%;"></a></p>
+<p><div class="ImgLazyLoad-circle"></div>
+<img data-fancybox="gallery" img-src="https://github.com/user-attachments/assets/4d1540a0-512d-4917-a0d5-a1b2454de6e5"></p>
 <p>设置完成后等 5 分钟后强制刷新网站, 就没有这个 js 的加载了.</p></div>
 <div style="font-size:small;margin-top:8px;float:right;">🥰转载请注明,谢谢!🥰</div>
 
