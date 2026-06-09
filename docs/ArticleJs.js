@@ -59,27 +59,44 @@ function createTOC() {
 		</a>
 	</div>
 	`;
+	// 用于生成唯一id的计数器
+	let idCounter = 0;
+	
 	// 获取文章标题并设置排版
 	const headings = document.querySelectorAll('.markdown-body h1, .markdown-body h2, .markdown-body h3, .markdown-body h4, .markdown-body h5, .markdown-body h6');
 	headings.forEach(heading => {
-		if (!heading.id) {
-			heading.id = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
-		}
-		const link = document.createElement('a');
-		link.href = `#${heading.id}`;
-		link.textContent = heading.textContent;
-		link.className = `toc-link toc-${heading.tagName.toLowerCase()}`;
-		if (heading.tagName !== 'H1') {
-			const level = parseInt(heading.tagName.charAt(1));
-			link.style.marginLeft = `${(level - 1) * 10}px`;
-		}
-		link.addEventListener('click', function(e) {
-			// 添加点击事件, 平滑滚动到对应的标题位置
-			e.preventDefault();
-			document.getElementById(heading.id).scrollIntoView();
-		});
-		// 将链接添加到 toc-title 容器中
-		tocTitle.appendChild(link);
+	    // 如果标题没有id，则创建一个唯一的id
+	    if (!heading.id) {
+	        let baseId = heading.textContent.trim().replace(/\s+/g, '-').toLowerCase();
+	        // 生成唯一id，如果baseId已存在，则增加一个计数器后缀
+	        let uniqueId = baseId;
+	        while (document.getElementById(uniqueId)) {
+	            idCounter++; // 计数器自增
+	            uniqueId = `${baseId}-${idCounter}`;
+	        }
+	        heading.id = uniqueId;
+	    }
+	
+	    // 创建链接
+	    const link = document.createElement('a');
+	    link.href = `#${heading.id}`;
+	    link.textContent = heading.textContent;
+	    link.className = `toc-link toc-${heading.tagName.toLowerCase()}`;
+	
+	    // 为非H1标题设置缩进
+	    if (heading.tagName !== 'H1') {
+	        const level = parseInt(heading.tagName.charAt(1));
+	        link.style.marginLeft = `${(level - 1) * 10}px`;
+	    }
+	
+	    // 添加点击事件, 平滑滚动到对应的标题位置
+	    link.addEventListener('click', function(e) {
+	        e.preventDefault();
+	        document.getElementById(heading.id).scrollIntoView();
+	    });
+	
+	    // 将链接添加到 toc-title 容器中
+	    tocTitle.appendChild(link);
 	});
 }
 	//////////////// 创建toc目录html结构 end ////////////////
@@ -136,22 +153,35 @@ document.addEventListener('DOMContentLoaded', () => {
 	//////////////// 引入fancybox所需的css文件以及所需的绑定函数 start ////////////////
 	document.head.appendChild(Object.assign(document.createElement('link'), {
 		rel: 'stylesheet',
-		href: 'https://testingcf.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css'
+		href: 'https://cdn.jsdelivr.net/npm/@fancyapps/ui@6.1/dist/fancybox/fancybox.css'
 	}));
-	Fancybox.bind('[data-fancybox="gallery"]', {});
+	Fancybox.bind("[data-fancybox]", {
+		Carousel: {
+			Thumbs: {
+				showOnStart: true,
+			},
+			Zoomable: {
+				Panzoom: {
+					clickAction: "iterateZoom",
+					maxScale: 2,
+				},
+			},
+		},
+	});
 	//////////////// 引入fancybox所需的css文件以及所需的绑定函数 end ////////////////
 
 	//////////////// 等待body动画结束再增加live2d的js start ////////////////
-	document.body.addEventListener('animationend', (event) => {
-		if (window.innerWidth >= 1250) {
-			if (event.animationName === 'slide-fade-in') {
-				var script = document.createElement('script');
-				script.type = 'text/javascript';
-				script.src = 'https://blog.liyifan.xyz/live2d/autoload.js';
-				document.body.appendChild(script);
-			}
-		}
-	}, { once: true });
+	// 已失效
+	// document.body.addEventListener('animationend', (event) => {
+	// 	if (window.innerWidth >= 1250) {
+	// 		if (event.animationName === 'slide-fade-in') {
+	// 			var script = document.createElement('script');
+	// 			script.type = 'text/javascript';
+	// 			script.src = 'https://blog.liyifan.xyz/live2d/autoload.js';
+	// 			document.body.appendChild(script);
+	// 		}
+	// 	}
+	// }, { once: true });
 	//////////////// 等待body动画结束再增加live2d的js end ////////////////
 
 	//////////////// 文章目录代码块 part2 start ////////////////
