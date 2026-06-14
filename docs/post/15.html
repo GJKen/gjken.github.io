@@ -29,9 +29,9 @@ body{box-sizing:border-box;min-width:200px;max-width:900px;margin:20px auto;padd
 #header{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;}
 #functionBtn{display:flex;justify-content:center;margin:20px 0;gap:20px;}
 #functionBtn a{padding:14px 16px;}
-#functionBtn.Btn-flex{position:fixed;margin:0;padding:8px 0;top:-64px;left:0;width:100%;min-width:500px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;animation:fadeIn.2s ease-in 0s forwards;transition:top 0.3s ease-in-out}
+#functionBtn.Btn-flex{position:fixed;margin:0;padding:8px 0;top:0;left:0;width:100%;min-width:0px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;animation:fadeIn.2s ease-in 0s forwards;transition:top 0.3s ease-in-out}
 #footer{margin-top:64px;text-align:center;font-size:small;}
-body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
+#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
 .title-left img{animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);-webkit-animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);}
 </style>
 
@@ -39,27 +39,25 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 .postTitle{margin:0 auto;font-size:40px;font-weight:bold;}
 .postTitle::after{content:'|';animation:blink 1s infinite;font-family:fantasy;font-weight:normal;vertical-align:text-top;}
 .no-blink::after{animation:none;}
-.spoilerText{filter:blur(5px);-webkit-filter:blur(5px);cursor:pointer;transition:filter .3s ease}
-.spoilerText.clear{filter:none;}
+.spoilertxt,.spoilerimg{cursor:pointer;transition:filter .3s ease}
+.spoilertxt{filter:blur(5px);-webkit-filter:blur(5px)}
+.spoilerimg{filter:blur(10px);-webkit-filter:blur(10px)}
+.spoilertxt.clear,.spoilerimg.clear{filter:none;}
 #postBody{border-bottom:1px solid var(--color-border-default);padding-bottom:36px;}
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 
-#toogleBtn{position:fixed;top:51px;right:6%;display:none;}
-#toogleBtn.active,#toogleBtn path{display:flex;padding:6px 7px;fill:var(--title-right-svgColor);cursor:pointer;transition:transform 0.3s ease-in-out;background:var(--tooglebtn-bgColor)}
-#toogleBtn.active:hover svg path{fill:var(--title-right-svgHovercolor);}
-#toogleBtn.btn-fadeout{opacity:0;}
 #functionBtn div:first-of-type{display:flex;gap:20px}
 
 .g-emoji{font-size:24px;}
 @media (max-width:600px) {
-    body {padding:8px;min-width:500px;}
+    body {padding: 8px;min-width: 0;width: 100%;overflow-x: hidden;}
     .postTitle{font-size:24px;}
 }
 
 </style>
-<style>.markdown-alert{border-radius:6px;padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color: var(--fgColor-accent,var(--color-accent-fg));}</style>
+<style>.markdown-alert{border-radius:6px;padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-note {border-left-color:var(--borderColor-accent-emphasis, var(--color-accent-emphasis));background-color:var(--color-accent-subtle);}.markdown-alert.markdown-alert-note .markdown-alert-title {color:var(--fgColor-accent,var(--color-accent-fg));}</style>
 
 
 
@@ -96,8 +94,8 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
     <div id="content">
 <div class="markdown-body" id="postBody"><p><strong>U2分享園@動漫花園 论坛--&gt;会员交流区--&gt;日本动画压制组异闻录(2020.05.04 更新，增补内容，迫害群友)</strong></p>
 <blockquote>
-<p>来源👉<a href="https://u2.dmhy.org/forums.php?action=viewtopic&amp;topicid=11263&amp;authorid=42308" rel="nofollow">https://u2.dmhy.org/forums.php?action=viewtopic&amp;topicid=11263&amp;authorid=42308</a><br>
-<a href="https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482" rel="nofollow">https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482</a></p>
+<p>来源👉<a target="_blank" href="https://u2.dmhy.org/forums.php?action=viewtopic&amp;topicid=11263&amp;authorid=42308" rel="nofollow noopener noreferrer">https://u2.dmhy.org/forums.php?action=viewtopic&amp;topicid=11263&amp;authorid=42308</a><br>
+<a target="_blank" href="https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482" rel="nofollow noopener noreferrer">https://www.tsdm39.com/forum.php?mod=viewthread&amp;tid=1121482</a></p>
 </blockquote>
 <h1>写在最前面</h1>
 <p>本帖主要写一些压制组的特点和轶事，来源于本人亲身经历和各处见闻，以及各论坛、Q群、大佬闲聊家常和网络传说，附带一些字幕组的相关闲谈，不求百分百准确，但求百分百娱乐。</p>
@@ -114,7 +112,7 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 <strong>江湖传说之二</strong>：雯姐曾用 avs 做过 MAD。</p>
 <h3>ANK-Raws</h3>
 <p>主刀为小夜，saya the lolicon，十几年压片经验，有各种祖传修线秘术，但作品不含真人特典。风格上，ANK-Raws 比另两家的线条处理力度更大一些，有着标志性的线条加深处理，噪点基本不保留，喜不喜欢看你个人。由于产量大，小夜并不是每一部片子都慢工出细活的，即使有的片子翻车也不奇怪。早年因为破坏性降噪和压制参数问题，受到过国内外一些压制者的猛烈吐槽，2013 年后的作品都有所改善。小夜的技术尤其是体现在一些见功力的片子上，比如臭名昭著的 Air 的BD。</p>
-<p><strong>江湖传说之一</strong>："最早的小夜是低参裸压的渣渣，后来的小夜就是滥用降噪滤镜的渣渣，现在的小夜是在玩舰娘的高手，但是无论什么时候，小夜都是萝莉控。" by LittlePox <a class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/vcb-studio/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/vcb-studio">@vcb-studio</a><br>
+<p><strong>江湖传说之一</strong>："最早的小夜是低参裸压的渣渣，后来的小夜就是滥用降噪滤镜的渣渣，现在的小夜是在玩舰娘的高手，但是无论什么时候，小夜都是萝莉控。" by LittlePox <a rel="noopener noreferrer" target="_blank" class="user-mention notranslate" data-hovercard-type="organization" data-hovercard-url="/orgs/vcb-studio/hovercard" data-octo-click="hovercard-link-click" data-octo-dimensions="link_type:self" href="https://github.com/vcb-studio">@vcb-studio</a><br>
 <strong>江湖传说之二</strong>：小夜曾经在QQ群文字直播，在大学课堂上用WindowsPhone手机上写 avs 脚本，现场做片。<br>
 <strong>江湖传说之三</strong>："如果有人说 Air 的原盘画质是最烂的，那他一定是没见过天才麻将少女第一季的原盘。" by Saya, the lolicon @ANK-Raws<br>
 <strong>江湖传说之四</strong>："如果希拉里不当选，我就是萝莉控。" by Saya, the lolicon @ANK-Raws</p>
@@ -482,19 +480,17 @@ var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 
 var utterancesLoad=0;
 
 let themeSettings={
-    "dark":["dark","moon","#00f0ff","dark-blue"],
-    "light":["light","sun","#ff5000","github-light"],
-    "auto":["auto","sync","","preferred-color-scheme"]
+    "dark":["dark","moon","dark-blue"],
+    "light":["light","sun","github-light"]
 };
-function changeTheme(mode, icon, color, utheme){
+function changeTheme(mode, icon, utheme){
     document.documentElement.setAttribute("data-color-mode",mode);
     document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
-    document.getElementById("themeSwitch").parentNode.style.color=color;
     if(utterancesLoad==1){utterancesTheme(utheme);}
 }
 function modeSwitch(){
     let currentMode=document.documentElement.getAttribute('data-color-mode');
-    let newMode = currentMode === "light" ? "dark" :currentMode === "dark" ? "auto" :"light";
+    let newMode = currentMode === "light" ? "dark" : "light";
     localStorage.setItem("meek_theme", newMode);
     if(themeSettings[newMode]){
         changeTheme(...themeSettings[newMode]);
@@ -509,8 +505,7 @@ if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 </script>
 
 <script>
-// const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink");const spoilers=document.querySelectorAll(".spoilerText");spoilers.length&&spoilers.forEach(t=>t.onclick=(()=>t.classList.toggle("clear"))),document.addEventListener("DOMContentLoaded",()=>{const t=document.createElement("div");t.id="checkBtn";const e=document.getElementById("functionBtn");e.insertAdjacentElement("afterend",t),new IntersectionObserver(t=>{t.forEach(t=>{const n=t.isIntersecting;e.classList.toggle("Btn-flex",!n),e.style.top=n?"0":"-100px"})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(t);let n=0;const o=t=>{e.style.top=t>0?"-100px":"0"};document.addEventListener("touchstart",t=>n=t.touches[0].clientY),document.addEventListener("touchmove",t=>o(t.touches[0].clientY-n)),document.addEventListener("wheel",t=>o(t.deltaY))});
-const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink");const spoilers=document.querySelectorAll(".spoilerText");spoilers.length&&spoilers.forEach(t=>t.onclick=(()=>t.classList.toggle("clear"))),document.addEventListener("DOMContentLoaded",()=>{const t=document.createElement("div");t.id="checkBtn";const e=document.getElementById("toogleBtn"),n=document.getElementById("functionBtn");n.insertAdjacentElement("afterend",t),new IntersectionObserver(t=>{t.forEach(t=>{e.classList.toggle("active",!t.isIntersecting),n.classList.toggle("Btn-flex",!t.isIntersecting)})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(t),e.addEventListener("click",()=>{n.style.top="0px"===n.style.top?"-64px":"0",e.style.transform="rotate(180deg)"===e.style.transform?"rotate(0deg)":"rotate(180deg)"})});
+const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink"),document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll(".spoilertxt");t.length&&t.forEach(t=>t.onclick=(()=>t.classList.toggle("clear")));const s=document.querySelectorAll(".spoilerimg");s.length&&s.forEach(s=>s.onclick=(()=>s.classList.toggle("clear")));const e=document.createElement("div");e.id="checkBtn";const n=document.getElementById("functionBtn");n.insertAdjacentElement("afterend",e),new IntersectionObserver(t=>{t.forEach(t=>{const e=t.isIntersecting;n.classList.toggle("Btn-flex",!e)})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(e)}),"scrollRestoration"in history&&(history.scrollRestoration="manual"),window.addEventListener("beforeunload",()=>{window.scrollTo(0,0)}),window.addEventListener("load",()=>{window.scrollTo(0,0)});
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("ArticleTOC").setAttribute("d","M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z");
 document.getElementById("pathSearch").setAttribute("d","M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z");
@@ -533,8 +528,7 @@ function openComments(){
     script.setAttribute("issue-term","title");
     
     if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
-    else{script.setAttribute("theme","preferred-color-scheme");}
+    else{script.setAttribute("theme","github-light");}
     
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");

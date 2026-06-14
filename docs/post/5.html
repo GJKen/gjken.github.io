@@ -29,9 +29,9 @@ body{box-sizing:border-box;min-width:200px;max-width:900px;margin:20px auto;padd
 #header{display:flex;flex-direction:column;align-items:center;gap:10px;margin-bottom:24px;}
 #functionBtn{display:flex;justify-content:center;margin:20px 0;gap:20px;}
 #functionBtn a{padding:14px 16px;}
-#functionBtn.Btn-flex{position:fixed;margin:0;padding:8px 0;top:-64px;left:0;width:100%;min-width:500px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;animation:fadeIn.2s ease-in 0s forwards;transition:top 0.3s ease-in-out}
+#functionBtn.Btn-flex{position:fixed;margin:0;padding:8px 0;top:0;left:0;width:100%;min-width:0px;background-color:var(--functionBtnFlex-bgColor);backdrop-filter:blur(30px);box-shadow:#00000078 0 9px 18px -15px;z-index:100;animation:fadeIn.2s ease-in 0s forwards;transition:top 0.3s ease-in-out}
 #footer{margin-top:64px;text-align:center;font-size:small;}
-body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
+#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animation:slide-fade-in 0.8s ease;animation:slide-fade-in 0.8s ease}
 .title-left img{animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);-webkit-animation:grow 0.5s cubic-bezier(0.23,1,0.32,1);}
 </style>
 
@@ -39,22 +39,20 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 .postTitle{margin:0 auto;font-size:40px;font-weight:bold;}
 .postTitle::after{content:'|';animation:blink 1s infinite;font-family:fantasy;font-weight:normal;vertical-align:text-top;}
 .no-blink::after{animation:none;}
-.spoilerText{filter:blur(5px);-webkit-filter:blur(5px);cursor:pointer;transition:filter .3s ease}
-.spoilerText.clear{filter:none;}
+.spoilertxt,.spoilerimg{cursor:pointer;transition:filter .3s ease}
+.spoilertxt{filter:blur(5px);-webkit-filter:blur(5px)}
+.spoilerimg{filter:blur(10px);-webkit-filter:blur(10px)}
+.spoilertxt.clear,.spoilerimg.clear{filter:none;}
 #postBody{border-bottom:1px solid var(--color-border-default);padding-bottom:36px;}
 #postBody hr{height:2px;}
 #cmButton{height:48px;margin-top:48px;}
 #comments{margin-top:64px;}
 
-#toogleBtn{position:fixed;top:51px;right:6%;display:none;}
-#toogleBtn.active,#toogleBtn path{display:flex;padding:6px 7px;fill:var(--title-right-svgColor);cursor:pointer;transition:transform 0.3s ease-in-out;background:var(--tooglebtn-bgColor)}
-#toogleBtn.active:hover svg path{fill:var(--title-right-svgHovercolor);}
-#toogleBtn.btn-fadeout{opacity:0;}
 #functionBtn div:first-of-type{display:flex;gap:20px}
 
 .g-emoji{font-size:24px;}
 @media (max-width:600px) {
-    body {padding:8px;min-width:500px;}
+    body {padding: 8px;min-width: 0;width: 100%;overflow-x: hidden;}
     .postTitle{font-size:24px;}
 }
 .copy-feedback {
@@ -69,7 +67,7 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
     font-size:12px;
 }
 </style>
-<style>.markdown-alert{border-radius:6px;padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color: var(--fgColor-success,var(--color-success-fg));}</style><style>.contains-task-list{padding-left:0.9em !important;list-style:none}</style>
+<style>.markdown-alert{border-radius:6px;padding:0.5rem 1rem;margin-bottom:1rem;border-left:.25em solid var(--borderColor-default,var(--color-border-default));}.markdown-alert .markdown-alert-title {display:flex;font-weight:var(--base-text-weight-medium,500);align-items:center;}.markdown-alert>:first-child {margin-top:0;}.markdown-alert>:last-child {margin-bottom:0;}</style><style>.markdown-alert.markdown-alert-tip {border-left-color:var(--borderColor-success-emphasis, var(--color-success-emphasis));background-color:var(--color-success-subtle);}.markdown-alert.markdown-alert-tip .markdown-alert-title {color:var(--fgColor-success,var(--color-success-fg));}</style><style>.contains-task-list{padding-left:0.9em !important;list-style:none}</style>
 
 
 
@@ -106,7 +104,7 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>注册 Serv00</h1>
 <p>注册没什么好说的, gmail+干净一点的ip基本上都可以成功, 这里不多做展开.<br>
-收不到邮件信息的估计是邮箱问题. 比如:<a href="https://mail.proton.me" rel="nofollow">https://mail.proton.me</a></p>
+收不到邮件信息的估计是邮箱问题. 比如:<a target="_blank" href="https://mail.proton.me" rel="nofollow noopener noreferrer">https://mail.proton.me</a></p>
 <h1>准备工作</h1>
 <p>进入 Additional services 选项卡中找到 Run your own applications 项目,<br>
 如下图所示, 必须要设置成如图所示的 Enabled.</p>
@@ -136,7 +134,7 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 <p><div class="ImgLazyLoad-circle"></div>
 <img data-fancybox="gallery" img-src="https://github.com/user-attachments/assets/81770332-00e0-4a12-9abe-b0a38978bbd3"></p>
 <h3>安装 Alist</h3>
-<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Alist 官方在 24年8月17日, 增加了 <a href="https://github.com/AlistGo/alist/releases/tag/beta">beta</a> 版本, 支持 FreeBSD 系统下能够运行的 Alist 可执行文件🎉</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg data-component="Octicon" class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>Alist 官方在 24年8月17日, 增加了 <a rel="noopener noreferrer" target="_blank" href="https://github.com/AlistGo/alist/releases/tag/beta">beta</a> 版本, 支持 FreeBSD 系统下能够运行的 Alist 可执行文件🎉</p>
 </div>
 <p>Serv00 本身提供的网站托管在<code class="notranslate">~/domains</code>路径下, 所以我建议把 Alist 也部署到这个路径下的子目录.</p>
 <p>一键创建目录并下载 Alist, 增加执行权限, 复制到终端粘贴使用.</p>
@@ -164,7 +162,7 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
   <tbody><tr>
     <td><p>CDN</p></td>
     <td colspan="2">
-      <p><span>可以在 <a href="https://alist.nn.ci/zh/config/configuration.html#cdn" rel="nofollow">Alist</a> 的官方文档找到, 请选择你本地网络连接速度最快的一个.</span></p>
+      <p><span>可以在 <a target="_blank" href="https://alist.nn.ci/zh/config/configuration.html#cdn" rel="nofollow noopener noreferrer">Alist</a> 的官方文档找到, 请选择你本地网络连接速度最快的一个.</span></p>
     </td>
   </tr>
   <tr>
@@ -210,9 +208,9 @@ body,#content,#functionBtn,.tagTitle,.title-left a,.subnav-search{-webkit-animat
 <img data-fancybox="gallery" img-src="https://github.com/user-attachments/assets/fffb55cc-ce5b-4943-8e2c-30580d85edce"></p>
 <p>运行正常, 显示的管理员账号的密码一定要记住. 接着使用 Ctrl+c 停止运行.</p>
 <h3>自定义域名绑定</h3>
-<p>我这边使用 <a href="https://nic.us.kg" rel="nofollow">us.kg</a> 的免费域名进行访问 Alist.</p>
+<p>我这边使用 <a target="_blank" href="https://nic.us.kg" rel="nofollow noopener noreferrer">us.kg</a> 的免费域名进行访问 Alist.</p>
 <p>因为 serv00 的域名基本上都会被墙, 没办法只能用<del>Cloudflare减速器</del>跨墙了, <del>CDN 回源加速不会弄.</del></p>
-<p>我们进入 <a href="https://dash.cloudflare.com" rel="nofollow">https://dash.cloudflare.com</a></p>
+<p>我们进入 <a target="_blank" href="https://dash.cloudflare.com" rel="nofollow noopener noreferrer">https://dash.cloudflare.com</a></p>
 <p>点击添加域, 再输入自己的域名, 选择最底下的 free 计划一路创建.</p>
 <p>然后复制 Cloudflare 给的 dns 名称服务器.</p>
 <p><div class="ImgLazyLoad-circle"></div>
@@ -239,7 +237,7 @@ screen -dmS alist bash -c <span class="pl-s"><span class="pl-pds">'</span>cd ~/d
 <p>不出意外的话, 隔一段时间进入 Alist 网页需要重新登陆账号, 因为定时脚本会先杀原来的 Alist 进程再重启.</p>
 <h1>Serv00+CT8 保活(可TG通知)</h1>
 <blockquote>
-<p>引用自 <a href="https://linux.do/t/topic/180293" rel="nofollow">Linux.do</a></p>
+<p>引用自 <a target="_blank" href="https://linux.do/t/topic/180293" rel="nofollow noopener noreferrer">Linux.do</a></p>
 </blockquote>
 <h2>先决条件</h2>
 <ul class="contains-task-list">
@@ -498,7 +496,7 @@ screen -dmS alist bash -c <span class="pl-s"><span class="pl-pds">'</span>cd ~/d
 <p><div class="ImgLazyLoad-circle"></div>
 <img data-fancybox="gallery" img-src="https://github.com/user-attachments/assets/d6f0ff1d-2408-4fbd-9071-2d01fb5a7763"></p>
 <h1>文章引用</h1>
-<p><a href="https://saika.us.kg/2024/01/27/serv00_logs#Alist" rel="nofollow">Saika's Blog</a> | <a href="https://zhuanlan.zhihu.com/p/680607217" rel="nofollow">知乎</a></p></div>
+<p><a target="_blank" href="https://saika.us.kg/2024/01/27/serv00_logs#Alist" rel="nofollow noopener noreferrer">Saika's Blog</a> | <a target="_blank" href="https://zhuanlan.zhihu.com/p/680607217" rel="nofollow noopener noreferrer">知乎</a></p></div>
 <div style="font-size:small;margin-top:8px;float:right;">🥰转载请注明,谢谢!🥰</div>
 
 <button class="btn btn-block" type="button" id="cmButton">评论</button>
@@ -527,19 +525,17 @@ var IconList={'sun': 'M8 10.5a2.5 2.5 0 100-5 2.5 2.5 0 000 5zM8 12a4 4 0 100-8 
 var utterancesLoad=0;
 
 let themeSettings={
-    "dark":["dark","moon","#00f0ff","dark-blue"],
-    "light":["light","sun","#ff5000","github-light"],
-    "auto":["auto","sync","","preferred-color-scheme"]
+    "dark":["dark","moon","dark-blue"],
+    "light":["light","sun","github-light"]
 };
-function changeTheme(mode, icon, color, utheme){
+function changeTheme(mode, icon, utheme){
     document.documentElement.setAttribute("data-color-mode",mode);
     document.getElementById("themeSwitch").setAttribute("d",value=IconList[icon]);
-    document.getElementById("themeSwitch").parentNode.style.color=color;
     if(utterancesLoad==1){utterancesTheme(utheme);}
 }
 function modeSwitch(){
     let currentMode=document.documentElement.getAttribute('data-color-mode');
-    let newMode = currentMode === "light" ? "dark" :currentMode === "dark" ? "auto" :"light";
+    let newMode = currentMode === "light" ? "dark" : "light";
     localStorage.setItem("meek_theme", newMode);
     if(themeSettings[newMode]){
         changeTheme(...themeSettings[newMode]);
@@ -554,8 +550,7 @@ if(themeSettings[theme]){changeTheme(...themeSettings[theme]);}
 </script>
 
 <script>
-// const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink");const spoilers=document.querySelectorAll(".spoilerText");spoilers.length&&spoilers.forEach(t=>t.onclick=(()=>t.classList.toggle("clear"))),document.addEventListener("DOMContentLoaded",()=>{const t=document.createElement("div");t.id="checkBtn";const e=document.getElementById("functionBtn");e.insertAdjacentElement("afterend",t),new IntersectionObserver(t=>{t.forEach(t=>{const n=t.isIntersecting;e.classList.toggle("Btn-flex",!n),e.style.top=n?"0":"-100px"})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(t);let n=0;const o=t=>{e.style.top=t>0?"-100px":"0"};document.addEventListener("touchstart",t=>n=t.touches[0].clientY),document.addEventListener("touchmove",t=>o(t.touches[0].clientY-n)),document.addEventListener("wheel",t=>o(t.deltaY))});
-const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink");const spoilers=document.querySelectorAll(".spoilerText");spoilers.length&&spoilers.forEach(t=>t.onclick=(()=>t.classList.toggle("clear"))),document.addEventListener("DOMContentLoaded",()=>{const t=document.createElement("div");t.id="checkBtn";const e=document.getElementById("toogleBtn"),n=document.getElementById("functionBtn");n.insertAdjacentElement("afterend",t),new IntersectionObserver(t=>{t.forEach(t=>{e.classList.toggle("active",!t.isIntersecting),n.classList.toggle("Btn-flex",!t.isIntersecting)})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(t),e.addEventListener("click",()=>{n.style.top="0px"===n.style.top?"-64px":"0",e.style.transform="rotate(180deg)"===e.style.transform?"rotate(0deg)":"rotate(180deg)"})});
+const postTitle=document.querySelector(".postTitle"),textContent=postTitle.textContent;postTitle.textContent="";let idx=0;const writeTimer=setInterval(()=>{postTitle.textContent=textContent.slice(0,idx++),idx>textContent.length&&(clearInterval(writeTimer),postTitle.classList.remove("no-blink"))},80);postTitle.classList.add("no-blink"),document.addEventListener("DOMContentLoaded",()=>{const t=document.querySelectorAll(".spoilertxt");t.length&&t.forEach(t=>t.onclick=(()=>t.classList.toggle("clear")));const s=document.querySelectorAll(".spoilerimg");s.length&&s.forEach(s=>s.onclick=(()=>s.classList.toggle("clear")));const e=document.createElement("div");e.id="checkBtn";const n=document.getElementById("functionBtn");n.insertAdjacentElement("afterend",e),new IntersectionObserver(t=>{t.forEach(t=>{const e=t.isIntersecting;n.classList.toggle("Btn-flex",!e)})},{rootMargin:"300px 0px 0px 0px",threshold:0}).observe(e)}),"scrollRestoration"in history&&(history.scrollRestoration="manual"),window.addEventListener("beforeunload",()=>{window.scrollTo(0,0)}),window.addEventListener("load",()=>{window.scrollTo(0,0)});
 document.getElementById("pathHome").setAttribute("d",IconList["home"]);
 document.getElementById("ArticleTOC").setAttribute("d","M1 2.75A.75.75 0 0 1 1.75 2h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 2.75Zm0 5A.75.75 0 0 1 1.75 7h12.5a.75.75 0 0 1 0 1.5H1.75A.75.75 0 0 1 1 7.75ZM1.75 12h12.5a.75.75 0 0 1 0 1.5H1.75a.75.75 0 0 1 0-1.5Z");
 document.getElementById("pathSearch").setAttribute("d","M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z");
@@ -578,8 +573,7 @@ function openComments(){
     script.setAttribute("issue-term","title");
     
     if(localStorage.getItem("meek_theme")=="dark"){script.setAttribute("theme","dark-blue");}
-    else if(localStorage.getItem("meek_theme")=="light") {script.setAttribute("theme","github-light");}
-    else{script.setAttribute("theme","preferred-color-scheme");}
+    else{script.setAttribute("theme","github-light");}
     
     script.setAttribute("crossorigin","anonymous");
     script.setAttribute("async","");
